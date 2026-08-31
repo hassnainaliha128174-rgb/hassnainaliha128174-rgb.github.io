@@ -3,146 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Hassnain Hub - AI tools, study tools, cricket scores, results, technology and useful guides.">
+<meta name="description" content="Hassnain Hub - AI image generator, AI chat, calculators, 9th class results and useful tools.">
 <title>Hassnain Hub</title>
 
 <style>
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-background:#080808;
-color:#fff;
-line-height:1.7
-}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#080808;color:#fff;line-height:1.7}
 a{text-decoration:none;color:inherit}
-.nav{
-position:sticky;
-top:0;
-z-index:1000;
-background:#080808;
-border-bottom:1px solid #222;
-padding:18px 5%;
-display:flex;
-justify-content:space-between;
-align-items:center
-}
-.logo{font-size:28px;font-weight:800}
-.logo span,.gold{color:#e7ad4b}
-.navlinks{display:flex;gap:20px;font-size:14px;color:#aaa}
+.nav{position:sticky;top:0;z-index:1000;background:#080808;border-bottom:1px solid #222;padding:18px 5%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:28px;font-weight:800}.logo span,.gold{color:#e7ad4b}
+.navlinks{display:flex;gap:18px;font-size:14px;color:#aaa;flex-wrap:wrap}
 .navlinks a:hover{color:#e7ad4b}
 .container{width:90%;max-width:1100px;margin:auto}
-.hero{text-align:center;padding:80px 10px 55px}
-.kicker{
-letter-spacing:7px;
-color:#e7ad4b;
-font-weight:bold;
-font-size:14px;
-text-transform:uppercase
-}
-.hero h1{font-size:58px;line-height:1.15;margin:15px 0}
-.hero p{color:#aaa;font-size:20px;max-width:700px;margin:auto}
-.section{padding:55px 0}
-.section-head{text-align:center;margin-bottom:35px}
-.section-head h2{font-size:42px;margin:5px 0}
+.hero{text-align:center;padding:70px 10px 50px}
+.kicker{letter-spacing:6px;color:#e7ad4b;font-weight:bold;font-size:13px;text-transform:uppercase}
+.hero h1{font-size:56px;line-height:1.15;margin:15px 0}
+.hero p{color:#aaa;font-size:19px;max-width:720px;margin:auto}
+.section{padding:50px 0}
+.section-head{text-align:center;margin-bottom:30px}
+.section-head h2{font-size:40px;margin:5px 0}
 .section-head p{color:#999}
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:20px
-}
-.card{
-background:#141414;
-border:1px solid #292929;
-border-radius:22px;
-padding:30px;
-transition:.2s;
-height:100%
-}
-.card:hover{border-color:#e7ad4b;transform:translateY(-3px)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.card{background:#141414;border:1px solid #292929;border-radius:22px;padding:28px;transition:.2s;height:100%}
+.card:hover{border-color:#e7ad4b;transform:translateY(-2px)}
 .icon{font-size:40px}
-.card h3{font-size:25px;margin:12px 0}
+.card h3{font-size:24px;margin:10px 0}
 .card p{color:#aaa}
-.btn{
-display:inline-block;
-border:1px solid #e7ad4b;
-background:#e7ad4b;
-color:#111;
-padding:11px 18px;
-border-radius:10px;
-font-weight:bold;
-cursor:pointer
-}
+.btn{display:inline-block;border:1px solid #e7ad4b;background:#e7ad4b;color:#111;padding:11px 18px;border-radius:10px;font-weight:bold;cursor:pointer;font-size:15px}
 .btn.alt{background:transparent;color:#e7ad4b}
-.btn:hover{opacity:.85}
-input,select{
-width:100%;
-padding:14px;
-margin:7px 0;
-border-radius:10px;
-border:1px solid #333;
-background:#0d0d0d;
-color:white;
-font-size:16px
-}
-.toolbox{
-background:#111;
-border:1px solid #292929;
-padding:25px;
-border-radius:18px;
-margin-top:20px
-}
-.result{
-padding:18px;
-margin-top:15px;
-border-radius:12px;
-background:#0b0b0b;
-border:1px solid #292929
-}
-.live{
-border-color:#e7ad4b;
-position:relative
-}
-.live-dot{
-display:inline-block;
-width:9px;height:9px;
-background:#e74b4b;
-border-radius:50%;
-margin-right:7px
-}
-.article{
-min-height:220px
-}
-.adbox{
-min-height:100px;
-border:1px dashed #444;
-border-radius:15px;
-display:flex;
-align-items:center;
-justify-content:center;
-color:#666;
-margin:30px 0
-}
-footer{
-border-top:1px solid #222;
-padding:45px 5%;
-text-align:center;
-color:#777
-}
+.btn:hover{opacity:.86}
+input,select,textarea{width:100%;padding:14px;margin:7px 0;border-radius:10px;border:1px solid #333;background:#0d0d0d;color:#fff;font-size:16px;font-family:inherit}
+textarea{min-height:120px;resize:vertical}
+.result{padding:16px;margin-top:15px;border-radius:12px;background:#0b0b0b;border:1px solid #292929}
+.notice{background:#17120a;border:1px solid #6c5228;padding:18px;border-radius:15px;margin-bottom:20px}
+.adbox{min-height:90px;border:1px dashed #444;border-radius:15px;display:flex;align-items:center;justify-content:center;color:#666;margin:30px 0}
+.live{border-color:#e7ad4b}
+.live-dot{display:inline-block;width:9px;height:9px;background:#e74b4b;border-radius:50%;margin-right:7px}
+.article{min-height:210px}
+.badge{display:inline-block;padding:5px 9px;border:1px solid #444;border-radius:20px;color:#aaa;font-size:12px;margin:3px}
+.image-wrap{margin-top:18px;text-align:center}
+.image-wrap img{width:100%;max-height:650px;object-fit:contain;border-radius:15px;border:1px solid #333;background:#000}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.chatbox{max-height:480px;overflow:auto;padding:10px;background:#0b0b0b;border:1px solid #292929;border-radius:14px}
+.msg{padding:12px 14px;border-radius:13px;margin:8px 0;white-space:pre-wrap}
+.user{background:#201a0d;border:1px solid #5b431e}
+.ai{background:#141414;border:1px solid #292929}
 .small{font-size:13px;color:#777}
-.notice{
-background:#17120a;
-border:1px solid #6c5228;
-padding:20px;
-border-radius:15px;
-margin-bottom:20px
-}
+footer{border-top:1px solid #222;padding:45px 5%;text-align:center;color:#777}
 @media(max-width:700px){
 .navlinks{display:none}
-.hero h1{font-size:42px}
-.section-head h2{font-size:32px}
-.card{padding:24px}
+.hero h1{font-size:40px}
+.section-head h2{font-size:31px}
+.card{padding:23px}
 }
 </style>
 </head>
@@ -152,11 +65,10 @@ margin-bottom:20px
 <header class="nav">
 <a class="logo" href="#top">Hassnain <span>Hub</span></a>
 <nav class="navlinks">
-<a href="#categories">Categories</a>
-<a href="#tools">Tools</a>
-<a href="#cricket">Cricket</a>
-<a href="#study">Study</a>
-<a href="#articles">Articles</a>
+<a href="#ai-image">AI Image</a>
+<a href="#result">9th Result</a>
+<a href="#calculator">Calculator</a>
+<a href="#ai-chat">Hassnain AI</a>
 </nav>
 </header>
 
@@ -165,470 +77,899 @@ margin-bottom:20px
 <section class="hero">
 <div class="kicker">Hassnain Hub</div>
 <h1>Useful Tools.<br><span class="gold">Useful Knowledge.</span></h1>
-<p>AI tools, study help, cricket scores, results, technology guides and practical resources in one place.</p>
+<p>AI image generation, Hassnain AI chat, calculators and student result resources in one place.</p>
 <br>
-<a class="btn" href="#categories">Explore Now →</a>
+<a class="btn" href="#ai-image">Start Using Tools →</a>
 </section>
 
 <div class="container">
 
-<div class="adbox">
-ADVERTISEMENT
-</div>
+<div class="adbox">ADVERTISEMENT</div>
 
-<section id="categories" class="section">
+<section id="ai-image" class="section">
 <div class="section-head">
-<div class="kicker">Explore</div>
-<h2>Popular Categories</h2>
-<p>Choose a category and start using the available tools.</p>
+<div class="kicker">AI Creator</div>
+<h2>🎨 Free AI Image Generator</h2>
+<p>Write your idea in Urdu, Punjabi, English or another language.</p>
 </div>
 
-<div class="grid">
+<div class="card">
 
-<a class="card" href="#tools">
-<div class="icon">🤖</div>
-<h3>AI & Tools</h3>
-<p>AI helpers, prompts, calculators and useful online tools.</p>
-</a>
+<div class="notice">
+<strong>Free daily limit: 3 images</strong><br>
+The limit is stored on this device and resets on the next day.
+</div>
 
-<a class="card" href="#study">
-<div class="icon">📚</div>
-<h3>Study Tools</h3>
-<p>Percentage calculator, study helper and useful student resources.</p>
-</a>
+<textarea id="imagePrompt" placeholder="مثال: ایک خوبصورت پاکستانی گاؤں کا منظر، شام کا وقت، cinematic realistic style"></textarea>
 
-<a class="card" href="#cricket">
-<div class="icon">🏏</div>
-<h3>Live Cricket</h3>
-<p>Check current cricket matches and scores.</p>
-</a>
+<div class="actions">
+<button class="btn" onclick="generateImage()">✨ Generate Image</button>
+<button class="btn alt" onclick="clearImage()">Clear</button>
+</div>
 
-<a class="card" href="#result">
-<div class="icon">🎓</div>
-<h3>9th Class Result</h3>
-<p>Punjab 9th class result information and official result access.</p>
-</a>
+<div id="imageStatus" class="result">
+Your generated image will appear here.
+</div>
 
-<a class="card" href="#articles">
-<div class="icon">💻</div>
-<h3>Tech & Mobile</h3>
-<p>Android tips, security and technology guides.</p>
-</a>
+<div id="imageOutput" class="image-wrap"></div>
 
-<a class="card" href="#articles">
-<div class="icon">💼</div>
-<h3>Online Work</h3>
-<p>Practical information about digital work and freelancing.</p>
-</a>
+<div id="imageActions" class="actions" style="display:none">
+<button class="btn" onclick="saveImage()">📱 Save to Gallery</button>
+<a id="openImage" class="btn alt" target="_blank" rel="noopener">Open Image</a>
+</div>
 
-<a class="card" href="#articles">
-<div class="icon">🎮</div>
-<h3>Gaming</h3>
-<p>Gaming tips and beginner guides.</p>
-</a>
-
-<a class="card" href="#articles">
-<div class="icon">🎥</div>
-<h3>Creator Tips</h3>
-<p>YouTube and social media creator guides.</p>
-</a>
+<p class="small">
+AI image generation uses an external AI service. Availability and limits can change.
+</p>
 
 </div>
 </section>
 
-<section id="tools" class="section">
-<div class="section-head">
-<div class="kicker">AI & Tools</div>
-<h2>Useful Tools</h2>
-<p>Simple tools that work directly in your browser.</p>
-</div>
-
-<div class="grid">
-
-<div class="card">
-<div class="icon">🧮</div>
-<h3>Percentage Calculator</h3>
-<input id="percentA" type="number" placeholder="Obtained marks">
-<input id="percentB" type="number" placeholder="Total marks">
-<button class="btn" onclick="percentage()">Calculate</button>
-<div id="percentResult" class="result">Enter your marks.</div>
-</div>
-
-<div class="card">
-<div class="icon">✍️</div>
-<h3>AI Prompt Helper</h3>
-<p>Write your topic and get a ready-to-use prompt.</p>
-<input id="promptTopic" placeholder="Example: YouTube video">
-<button class="btn" onclick="makePrompt()">Create Prompt</button>
-<div id="promptResult" class="result">Your prompt will appear here.</div>
-</div>
-
-<div class="card">
-<div class="icon">📝</div>
-<h3>Study Helper</h3>
-<p>Generate a simple study plan from your subject.</p>
-<input id="studySubject" placeholder="Example: English">
-<button class="btn" onclick="studyPlan()">Make Plan</button>
-<div id="studyResult" class="result">Enter a subject.</div>
-</div>
-
-</div>
-</section>
-
-<section id="study" class="section">
-<div class="section-head">
-<div class="kicker">Students</div>
-<h2>Study Tools</h2>
-<p>Quick resources for students.</p>
-</div>
-
-<div class="grid">
-
-<div class="card">
-<div class="icon">📖</div>
-<h3>Study Method</h3>
-<p>25 minutes study → 5 minutes break. Repeat four times, then take a longer break.</p>
-</div>
-
-<div class="card">
-<div class="icon">🎯</div>
-<h3>Daily Goal</h3>
-<p>Choose one topic, understand it, practise questions and review your mistakes.</p>
-</div>
-
-<div class="card">
-<div class="icon">🧠</div>
-<h3>AI Learning Prompt</h3>
-<p>Ask an AI: “Explain this topic like a beginner, give examples and then quiz me.”</p>
-</div>
-
-</div>
-</section>
 
 <section id="result" class="section">
+
 <div class="section-head">
 <div class="kicker">Education</div>
-<h2>9th Class Result 2026</h2>
-<p>Punjab Boards — important result information</p>
+<h2>🎓 9th Class Result 2026</h2>
+<p>Punjab boards and useful Pakistan board links.</p>
 </div>
 
 <div class="notice">
-<strong>🎓 Result Date: 2 September 2026</strong><br>
-The announced schedule reported for Punjab 9th class results is 2 September 2026 at 10:00 AM. Always verify the result on your own board's official website.
+<strong>📅 Result Date: 2 September 2026 at 10:00 AM.</strong><br>
+Always verify the final announcement on the relevant official board website.
 </div>
 
 <div class="card">
-<h3>Check Your Result</h3>
-<p>When the result is released, use the official board result system. Select your board and enter your roll number.</p>
+
+<h3>Punjab Boards</h3>
+
+<p>
+Open your board's official website and use its result system when the result is released.
+</p>
 
 <div class="grid">
-<a class="btn" target="_blank"
-href="https://home.biselahore.com/">
-BISE Lahore
+
+<a class="btn" target="_blank" rel="noopener"
+href="https://www.biselahore.com/">
+Lahore
 </a>
 
-<a class="btn" target="_blank"
-href="https://www.biseresult.com/">
-BISE Result Portal
+<a class="btn" target="_blank" rel="noopener"
+href="https://www.bisegrw.edu.pk/">
+Gujranwala
 </a>
 
-<a class="btn alt" target="_blank"
+<a class="btn" target="_blank" rel="noopener"
+href="https://www.biserawalpindi.edu.pk/">
+Rawalpindi
+</a>
+
+<a class="btn" target="_blank" rel="noopener"
+href="https://www.bisefsd.edu.pk/">
+Faisalabad
+</a>
+
+<a class="btn" target="_blank" rel="noopener"
+href="https://web.bisemultan.edu.pk/">
+Multan
+</a>
+
+<a class="btn" target="_blank" rel="noopener"
 href="https://www.bisesargodha.edu.pk/">
-BISE Sargodha
+Sargodha
 </a>
+
+<a class="btn" target="_blank" rel="noopener"
+href="https://www.bisesahiwal.edu.pk/">
+Sahiwal
+</a>
+
+<a class="btn" target="_blank" rel="noopener"
+href="https://www.bisebwp.edu.pk/">
+Bahawalpur
+</a>
+
+<a class="btn" target="_blank" rel="noopener"
+href="https://www.bisedgkhan.edu.pk/">
+DG Khan
+</a>
+
+</div>
+
+<h3 style="margin-top:28px">
+Other Pakistan Boards
+</h3>
+
+<div class="grid">
+
+<a class="btn alt" target="_blank" rel="noopener"
+href="https://www.fbise.edu.pk/">
+Federal Board
+</a>
+
+<a class="btn alt" target="_blank" rel="noopener"
+href="https://www.biek.edu.pk/">
+Karachi Board
+</a>
+
+<a class="btn alt" target="_blank" rel="noopener"
+href="https://www.ajkbise.net/">
+AJK Board
+</a>
+
+<a class="btn alt" target="_blank" rel="noopener"
+href="https://www.bisep.edu.pk/">
+Peshawar Board
+</a>
+
 </div>
 
 <p class="small">
-For Hafizabad/Gujranwala students, use the official BISE Gujranwala result system when the result is released.
+Board websites can change their result-page addresses. These buttons open official board websites.
 </p>
+
 </div>
 </section>
 
-<section id="cricket" class="section">
+
+<section id="calculator" class="section">
+
 <div class="section-head">
-<div class="kicker">Live Sports</div>
-<h2>🏏 Live Cricket Scores</h2>
-<p>Press refresh to load current cricket information.</p>
-</div>
-
-<div class="card live">
-<h3><span class="live-dot"></span> Cricket Live Centre</h3>
-
-<button class="btn" onclick="loadCricket()">Refresh Scores</button>
-
-<div id="cricketStatus" class="result">
-Loading cricket information...
-</div>
-
-<div id="cricketMatches"></div>
-
-<p class="small">
-Live data depends on the availability of the external cricket data service.
-</p>
-</div>
-</section>
-
-<section id="articles" class="section">
-<div class="section-head">
-<div class="kicker">Latest Articles</div>
-<h2>Useful Guides</h2>
-<p>Practical information for everyday users.</p>
+<div class="kicker">Smart Calculator</div>
+<h2>📐 Land & Unit Calculator</h2>
+<p>Length, width, area and common unit conversions.</p>
 </div>
 
 <div class="grid">
 
-<article class="card article">
-<div class="kicker">AI</div>
-<h3>5 Practical Ways to Use AI Every Day</h3>
-<p>Use AI for brainstorming, learning, outlining and improving your own work.</p>
-<button class="btn alt" onclick="openArticle('AI Guide','AI can help with brainstorming, learning, outlining and organizing your own work. Always review important information.')">
-Read Article →
-</button>
-</article>
+<div class="card">
 
-<article class="card article">
-<div class="kicker">Mobile</div>
-<h3>How to Keep Your Android Phone Fast</h3>
-<p>Keep storage free, remove unused apps, install updates and restart when necessary.</p>
-<button class="btn alt" onclick="openArticle('Android Guide','Keep storage free, remove unused apps, install system updates and restart the phone when necessary. Use trusted app stores and avoid unknown APK files.')">
-Read Article →
-</button>
-</article>
+<h3>🌾 Land Area</h3>
 
-<article class="card article">
-<div class="kicker">Creator</div>
-<h3>Beginner YouTube Channel Checklist</h3>
-<p>Choose a clear topic, consistent branding, useful titles and a realistic upload plan.</p>
-<button class="btn alt" onclick="openArticle('YouTube Guide','Choose a clear topic, create consistent branding, write useful titles and follow a realistic upload plan.')">
-Read Article →
-</button>
-</article>
+<input id="landLength"
+type="number"
+step="any"
+placeholder="Length">
 
-<article class="card article">
-<div class="kicker">Online Work</div>
-<h3>Online Work: A Safe Beginner Approach</h3>
-<p>Start with a real skill such as writing, design, video editing, web development or support.</p>
-<button class="btn alt" onclick="openArticle('Online Work Guide','Start with a real skill and be careful with guaranteed-income promises and unnecessary fees.')">
-Read Article →
-</button>
-</article>
+<select id="landLengthUnit">
+<option value="m">Meters</option>
+<option value="km">Kilometers</option>
+<option value="ft">Feet</option>
+</select>
 
-<article class="card article">
-<div class="kicker">Gaming</div>
-<h3>Gaming Basics for New Players</h3>
-<p>Learn controls, sensitivity, graphics settings and the main objective before changing advanced settings.</p>
-<button class="btn alt" onclick="openArticle('Gaming Guide','Learn the controls, sensitivity, graphics settings and main objective before changing advanced settings.')">
-Read Article →
+<input id="landWidth"
+type="number"
+step="any"
+placeholder="Width">
+
+<select id="landWidthUnit">
+<option value="m">Meters</option>
+<option value="km">Kilometers</option>
+<option value="ft">Feet</option>
+</select>
+
+<button class="btn" onclick="calculateLand()">
+Calculate Area
 </button>
-</article>
+
+<div id="landResult" class="result">
+Enter length and width.
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>📏 Length Converter</h3>
+
+<input id="convertValue"
+type="number"
+step="any"
+placeholder="Enter value">
+
+<select id="convertFrom">
+<option value="m">Meter</option>
+<option value="km">Kilometer</option>
+<option value="ft">Foot</option>
+</select>
+
+<button class="btn" onclick="convertLength()">
+Convert
+</button>
+
+<div id="convertResult" class="result">
+Result will appear here.
+</div>
+
+</div>
 
 </div>
 </section>
+
+
+<section id="ai-chat" class="section">
+
+<div class="section-head">
+
+<div class="kicker">
+Hassnain AI
+</div>
+
+<h2>
+🤖 Hassnain AI Chat
+</h2>
+
+<p>
+Ask your question in Urdu, Punjabi, English or another language.
+</p>
+
+</div>
+
+<div class="card">
+
+<div id="chatBox" class="chatbox">
+
+<div class="msg ai">
+Assalam-o-Alaikum! میں Hassnain AI ہوں۔ اپنا سوال لکھیں۔
+</div>
+
+</div>
+
+<textarea
+id="chatInput"
+placeholder="اپنا سوال لکھیں..."
+></textarea>
+
+<div class="actions">
+
+<button class="btn"
+onclick="sendChat()">
+Send Question →
+</button>
+
+<button class="btn alt"
+onclick="clearChat()">
+Clear Chat
+</button>
+
+</div>
+
+<div id="chatStatus" class="small"
+style="margin-top:10px">
+</div>
+
+</div>
+</section>
+
 
 <div class="adbox">
 ADVERTISEMENT
 </div>
 
+
 <section class="section">
+
 <div class="section-head">
-<div class="kicker">Google</div>
-<h2>Google Studio</h2>
-<p>Connect your future AI/Google Studio project here.</p>
+
+<div class="kicker">
+Google
+</div>
+
+<h2>
+Google AI Studio
+</h2>
+
+<p>
+Open Google AI Studio for future AI project/API setup.
+</p>
+
 </div>
 
 <div class="card">
-<h3>🚀 Google AI / Studio</h3>
+
+<h3>
+🚀 Google AI Studio
+</h3>
+
 <p>
-This website can be connected to a real Google AI Studio project after the required API/project credentials are configured.
+Your website can later be connected to a secured backend/API project.
+Never put secret API keys directly inside this public HTML file.
 </p>
-<a class="btn" target="_blank"
+
+<a
+class="btn"
+target="_blank"
+rel="noopener"
 href="https://aistudio.google.com/">
 Open Google AI Studio
 </a>
+
 </div>
+
 </section>
 
 </div>
 </main>
 
+
 <footer>
-<strong>Hassnain <span class="gold">Hub</span></strong>
-<p>Useful technology, education, AI and digital resources.</p>
-<p class="small">© 2026 Hassnain Hub</p>
+
+<strong>
+Hassnain <span class="gold">Hub</span>
+</strong>
+
+<p>
+Useful AI, education and digital tools.
+</p>
+
+<p class="small">
+© 2026 Hassnain Hub
+</p>
+
 </footer>
 
+
 <script>
-function percentage(){
-const a=parseFloat(document.getElementById("percentA").value);
-const b=parseFloat(document.getElementById("percentB").value);
 
-if(!Number.isFinite(a)||!Number.isFinite(b)||b<=0){
-document.getElementById("percentResult").textContent="Please enter valid marks.";
-return;
+/* =========================
+AI IMAGE GENERATOR
+========================= */
+
+const IMAGE_LIMIT=3;
+
+let currentImageUrl="";
+
+function todayKey(){
+
+const d=new Date();
+
+return d.getFullYear()+"-"+
+String(d.getMonth()+1).padStart(2,"0")+"-"+
+String(d.getDate()).padStart(2,"0");
+
 }
 
-const p=(a/b)*100;
-document.getElementById("percentResult").textContent=
-"Percentage: "+p.toFixed(2)+"%";
-}
-
-function makePrompt(){
-const topic=document.getElementById("promptTopic").value.trim();
-
-if(!topic){
-document.getElementById("promptResult").textContent="Please enter a topic.";
-return;
-}
-
-document.getElementById("promptResult").textContent=
-"Act as an expert teacher and content creator. Help me with: "+
-topic+
-". Explain it simply, give practical examples, common mistakes and a short quiz.";
-}
-
-function studyPlan(){
-const subject=document.getElementById("studySubject").value.trim();
-
-if(!subject){
-document.getElementById("studyResult").textContent="Please enter a subject.";
-return;
-}
-
-document.getElementById("studyResult").innerHTML=
-"<strong>"+subject+" Study Plan</strong><br>"+
-"1. 20 min — Learn the main concept.<br>"+
-"2. 20 min — Study examples.<br>"+
-"3. 20 min — Practise questions.<br>"+
-"4. 10 min — Review mistakes.<br>"+
-"5. 5 min — Quick self-test.";
-}
-
-function openArticle(title,body){
-alert(title+"\\n\\n"+body);
-}
-
-/*
-Cricket:
-ESPN's cricket APIs require series/league discovery.
-We first ask the personalized cricket scoreboard header for
-active series and then request available scoreboard data.
-*/
-
-async function loadCricket(){
-
-const status=document.getElementById("cricketStatus");
-const box=document.getElementById("cricketMatches");
-
-status.innerHTML="Loading live cricket data...";
-box.innerHTML="";
+function imageUsage(){
 
 try{
 
-const headerUrl=
-"https://site.api.espn.com/apis/personalized/v2/scoreboard/header?sport=cricket&region=in&tz=Asia/Calcutta";
+const saved=
+JSON.parse(
+localStorage.getItem("hh_image_usage")||"{}"
+);
 
-const h=await fetch(headerUrl,{cache:"no-store"});
+if(saved.date!==todayKey()){
 
-if(!h.ok) throw new Error("Cricket service unavailable");
+return{
+date:todayKey(),
+count:0
+};
 
-const data=await h.json();
-
-const sports=data.sports||[];
-const leagues=(sports[0]&&sports[0].leagues)||[];
-
-if(!leagues.length){
-status.innerHTML="No active cricket series found right now.";
-return;
 }
 
-let total=0;
+return saved;
 
-for(const league of leagues.slice(0,12)){
+}catch(e){
 
-const id=league.id;
+return{
+date:todayKey(),
+count:0
+};
 
-try{
+}
+
+}
+
+
+function saveImageUsage(count){
+
+localStorage.setItem(
+"hh_image_usage",
+JSON.stringify({
+date:todayKey(),
+count:count
+})
+);
+
+}
+
+
+function generateImage(){
+
+const prompt=
+document.getElementById("imagePrompt")
+.value
+.trim();
+
+const status=
+document.getElementById("imageStatus");
+
+const output=
+document.getElementById("imageOutput");
+
+const actions=
+document.getElementById("imageActions");
+
+
+if(!prompt){
+
+status.textContent=
+"Please write your image idea first.";
+
+return;
+
+}
+
+
+const usage=imageUsage();
+
+
+if(usage.count>=IMAGE_LIMIT){
+
+status.innerHTML=
+"<strong>Today's free image limit is finished.</strong><br>Please try again tomorrow.";
+
+return;
+
+}
+
+
+usage.count++;
+
+saveImageUsage(usage.count);
+
+
+status.textContent=
+"Generating your image... please wait.";
+
+output.innerHTML="";
+
+actions.style.display="none";
+
+
+const finalPrompt=
+"Create a high-quality safe image based exactly on this user's idea. "+
+"The user may write in Urdu, Punjabi, English or another language. "+
+"Understand the meaning and create a visually detailed image. "+
+"User idea: "+prompt;
+
 
 const url=
-"https://site.api.espn.com/apis/site/v2/sports/cricket/"+
-encodeURIComponent(id)+"/scoreboard";
+"https://image.pollinations.ai/prompt/"+
+encodeURIComponent(finalPrompt)+
+"?model=flux&width=1024&height=1024&safe=true";
 
-const r=await fetch(url,{cache:"no-store"});
 
-if(!r.ok) continue;
+currentImageUrl=url;
 
-const j=await r.json();
 
-const events=j.events||[];
+const img=new Image();
 
-for(const event of events){
 
-total++;
+img.onload=function(){
 
-let competitors=[];
+output.innerHTML="";
+
+output.appendChild(img);
+
+status.innerHTML=
+"Image generated successfully. "+
+"<span class='badge'>"+
+usage.count+"/"+IMAGE_LIMIT+
+" used today</span>";
+
+actions.style.display="flex";
+
+document.getElementById("openImage").href=url;
+
+};
+
+
+img.onerror=function(){
+
+status.innerHTML=
+"The image service did not respond. Please try again later.";
+
+actions.style.display="none";
+
+};
+
+
+img.alt="AI generated image";
+
+img.src=url;
+
+}
+
+
+async function saveImage(){
+
+if(!currentImageUrl)
+return;
 
 try{
-competitors=event.competitions?.[0]?.competitors||[];
-}catch(e){}
 
-let scores=competitors.map(c=>{
-const team=c.team?.displayName||
-c.team?.shortDisplayName||
-c.team?.name||
-"Team";
+const response=
+await fetch(
+currentImageUrl,
+{mode:"cors"}
+);
 
-const score=c.score||
-(c.linescores&&c.linescores.length?
-c.linescores.map(x=>x.value).join(" / "):"");
+const blob=
+await response.blob();
 
-return "<strong>"+escapeHtml(team)+
-"</strong> — "+escapeHtml(String(score||"Score unavailable"));
-}).join("<br>");
+const blobUrl=
+URL.createObjectURL(blob);
 
-const statusText=
-event.status?.type?.shortDetail||
-event.status?.type?.detail||
-"Match";
+const a=
+document.createElement("a");
 
-box.innerHTML+=
-'<div class="result" style="margin-top:15px">'+
-"<h3>🏏 "+escapeHtml(event.name||"Cricket match")+"</h3>"+
-"<div class='gold'>"+scores+"</div>"+
-"<p>"+escapeHtml(statusText)+"</p>"+
-"</div>";
+a.href=blobUrl;
+
+a.download=
+"hassnain-hub-ai-image.jpg";
+
+document.body.appendChild(a);
+
+a.click();
+
+a.remove();
+
+setTimeout(
+()=>{
+URL.revokeObjectURL(blobUrl);
+},
+2000
+);
+
+}catch(e){
+
+window.open(
+currentImageUrl,
+"_blank"
+);
+
 }
 
-}catch(e){}
 }
 
-if(total===0){
-status.innerHTML=
-"No live/upcoming score was returned right now. Tap Refresh Scores again during a match.";
-}else{
-status.innerHTML=
-"Cricket updated just now — "+total+" match/event(s) found.";
+
+function clearImage(){
+
+document.getElementById("imagePrompt").value="";
+
+document.getElementById("imageOutput").innerHTML="";
+
+document.getElementById("imageActions").style.display="none";
+
+document.getElementById("imageStatus").textContent=
+"Your generated image will appear here.";
+
+currentImageUrl="";
+
 }
 
-}catch(error){
 
-status.innerHTML=
-"Live cricket data could not be loaded right now. Please try Refresh Scores again.";
+/* =========================
+LAND CALCULATOR
+========================= */
+
+function toMeters(value,unit){
+
+if(unit==="km")
+return value*1000;
+
+if(unit==="ft")
+return value*0.3048;
+
+return value;
+
+}
+
+
+function calculateLand(){
+
+const l=
+parseFloat(
+document.getElementById("landLength").value
+);
+
+const w=
+parseFloat(
+document.getElementById("landWidth").value
+);
+
+const lu=
+document.getElementById("landLengthUnit").value;
+
+const wu=
+document.getElementById("landWidthUnit").value;
+
+const box=
+document.getElementById("landResult");
+
+
+if(!Number.isFinite(l)||
+!Number.isFinite(w)||
+l<0||w<0){
+
+box.textContent=
+"Please enter valid length and width.";
+
+return;
+
+}
+
+
+const lm=
+toMeters(l,lu);
+
+const wm=
+toMeters(w,wu);
+
+const area=
+lm*wm;
+
 
 box.innerHTML=
-'<div class="result">The website is working, but the external cricket data service did not respond.</div>';
-}
+
+"<strong>Area:</strong> "+
+area.toFixed(4)+" m²<br>"+
+
+"<strong>Square feet:</strong> "+
+(area*10.7639104167).toFixed(4)+" ft²<br>"+
+
+"<strong>Square kilometers:</strong> "+
+(area/1000000).toFixed(8)+" km²";
+
 }
 
-function escapeHtml(value){
-return value
-.replaceAll("&","&amp;")
-.replaceAll("<","&lt;")
-.replaceAll(">","&gt;")
-.replaceAll('"',"&quot;")
-.replaceAll("'","&#039;");
+
+function convertLength(){
+
+const v=
+parseFloat(
+document.getElementById("convertValue").value
+);
+
+const from=
+document.getElementById("convertFrom").value;
+
+const box=
+document.getElementById("convertResult");
+
+
+if(!Number.isFinite(v)){
+
+box.textContent=
+"Please enter a valid value.";
+
+return;
+
 }
 
-loadCricket();
+
+const m=
+toMeters(v,from);
+
+
+box.innerHTML=
+
+"<strong>Meters:</strong> "+
+m.toFixed(6)+" m<br>"+
+
+"<strong>Kilometers:</strong> "+
+(m/1000).toFixed(6)+" km<br>"+
+
+"<strong>Feet:</strong> "+
+(m/0.3048).toFixed(6)+" ft";
+
+}
+
+
+/* =========================
+HASSNAIN AI CHAT
+========================= */
+
+const CHAT_LIMIT=20;
+
+
+function chatUsage(){
+
+try{
+
+const saved=
+JSON.parse(
+localStorage.getItem("hh_chat_usage")||"{}"
+);
+
+if(saved.date!==todayKey()){
+
+return{
+date:todayKey(),
+count:0
+};
+
+}
+
+return saved;
+
+}catch(e){
+
+return{
+date:todayKey(),
+count:0
+};
+
+}
+
+}
+
+
+function sendChat(){
+
+const input=
+document.getElementById("chatInput");
+
+const box=
+document.getElementById("chatBox");
+
+const status=
+document.getElementById("chatStatus");
+
+const question=
+input.value.trim();
+
+
+if(!question){
+
+status.textContent=
+"Please write a question.";
+
+return;
+
+}
+
+
+const usage=
+chatUsage();
+
+
+if(usage.count>=CHAT_LIMIT){
+
+status.textContent=
+"Today's free chat limit is finished. Please try again tomorrow.";
+
+return;
+
+}
+
+
+usage.count++;
+
+
+localStorage.setItem(
+"hh_chat_usage",
+JSON.stringify(usage)
+);
+
+
+const user=
+document.createElement("div");
+
+user.className="msg user";
+
+user.textContent=question;
+
+box.appendChild(user);
+
+
+const ai=
+document.createElement("div");
+
+ai.className="msg ai";
+
+ai.textContent=
+"Hassnain AI is thinking...";
+
+box.appendChild(ai);
+
+box.scrollTop=
+box.scrollHeight;
+
+input.value="";
+
+
+status.textContent=
+usage.count+
+"/"+
+CHAT_LIMIT+
+" questions used today.";
+
+
+const prompt=
+
+"You are Hassnain AI, a helpful assistant on Hassnain Hub. "+
+"Answer the user's question in the same language they use when possible. "+
+"Be concise but useful. "+
+"If the question is unsafe or illegal, refuse briefly and offer a safe alternative. "+
+"User question: "+
+question;
+
+
+const url=
+"https://text.pollinations.ai/"+
+encodeURIComponent(prompt)+
+"?model=openai";
+
+
+fetch(
+url,
+{cache:"no-store"}
+)
+
+.then(r=>{
+
+if(!r.ok)
+throw new Error("AI service error");
+
+return r.text();
+
+})
+
+.then(text=>{
+
+ai.textContent=
+text||
+"No answer was returned.";
+
+box.scrollTop=
+box.scrollHeight;
+
+})
+
+.catch(e=>{
+
+ai.textContent=
+"Sorry, the AI service is unavailable right now. Please try again.";
+
+});
+
+}
+
+
+function clearChat(){
+
+document.getElementById("chatBox").innerHTML=
+'<div class="msg ai">Assalam-o-Alaikum! میں Hassnain AI ہوں۔ اپنا سوال لکھیں۔</div>';
+
+document.getElementById("chatInput").value="";
+
+document.getElementById("chatStatus").textContent="";
+
+}
+
 </script>
 
 </body>
