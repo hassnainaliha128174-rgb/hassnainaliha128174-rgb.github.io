@@ -1,34 +1,635 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Hassnain Hub — technology, AI, study tools, calculators and live cricket scores"><title>Hassnain Hub | Technology, AI, Study & Live Tools</title><style>
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Arial,Helvetica,sans-serif;background:#090909;color:#fff;line-height:1.6}a{text-decoration:none;color:inherit}.header{position:sticky;top:0;z-index:50;background:rgba(9,9,9,.96);backdrop-filter:blur(12px);border-bottom:1px solid #242424}.nav{max-width:1120px;margin:auto;padding:16px 22px;display:flex;justify-content:space-between;align-items:center}.logo{font-size:24px;font-weight:900}.logo span,.kicker,.article-card a{color:#d8a24a}.navlinks{display:flex;gap:16px;color:#aaa;font-size:13px;flex-wrap:wrap}.navlinks a:hover{color:#d8a24a}.hero{min-height:610px;display:flex;align-items:center;background:radial-gradient(circle at 80% 25%,#352813 0,transparent 35%),linear-gradient(120deg,#090909 20%,#12100c 100%)}.hero-inner,.section{max-width:1120px;width:100%;margin:auto;padding:78px 22px}.hero-inner{padding-top:85px;padding-bottom:85px}.kicker{text-transform:uppercase;letter-spacing:4px;font-size:12px;font-weight:800}h1{font-size:clamp(48px,8vw,82px);line-height:1.02;max-width:760px;margin:15px 0}.hero p{max-width:650px;color:#aaa;font-size:18px;margin-bottom:25px}.btn{display:inline-block;padding:11px 18px;border-radius:8px;font-weight:800;margin:5px 6px 5px 0;cursor:pointer}.primary{background:#d8a24a;color:#111}.secondary{border:1px solid #444;background:transparent;color:#fff}.section-head{text-align:center;margin-bottom:34px}.section-head h2{font-size:38px;margin:6px 0}.section-head p,.card p,.tool p,.article-card p,.status{color:#999}.cards,.tool-grid,.article-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card,.tool,.article-card,.reading-box,.live-box,.ai-box{background:#141414;border:1px solid #292929;border-radius:14px;padding:24px;transition:.2s}.card:hover,.tool:hover,.article-card:hover{transform:translateY(-3px);border-color:#514027}.icon{font-size:32px;margin-bottom:10px}.card h3,.tool h3{margin-bottom:7px}.tool button{border:0;background:#d8a24a;color:#111;padding:10px 14px;border-radius:7px;font-weight:800;cursor:pointer}.dark{background:#101010;border-top:1px solid #202020;border-bottom:1px solid #202020}.search-box{max-width:760px;margin:auto;background:#141414;border:1px solid #292929;border-radius:14px;padding:14px;display:flex;gap:10px;flex-wrap:wrap}.search-box input{flex:1;min-width:220px;background:#0b0b0b;border:1px solid #333;color:#fff;padding:14px;border-radius:8px}.search-box button{background:#d8a24a;border:0;border-radius:8px;padding:0 22px;font-weight:800}.search-result{width:100%;padding:8px 3px;color:#999}.article-card h3{font-size:21px;margin:8px 0}.article-meta{display:flex;gap:8px;flex-wrap:wrap;color:#777;font-size:12px}.article-meta span{border:1px solid #292929;border-radius:999px;padding:4px 8px}.reading-box{max-width:850px;margin:auto}.reading-box h2{font-size:34px;margin:7px 0 18px}.reading-box h3{margin:20px 0 5px}.reading-box p{color:#aaa}.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.ai-box textarea,.ai-box input,.ai-box select{width:100%;background:#0b0b0b;color:#fff;border:1px solid #333;padding:12px;border-radius:8px;margin:7px 0}.output{min-height:90px;background:#0d0d0d;border:1px solid #292929;border-radius:8px;padding:13px;color:#bbb;white-space:pre-wrap;margin-top:8px}.live-box{max-width:900px;margin:auto}.live-toolbar{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}.match{border:1px solid #292929;background:#101010;border-radius:12px;padding:16px;margin:10px 0}.score{color:#d8a24a;font-weight:800;margin-top:5px}.powered{display:inline-block;margin-top:12px;color:#aaa;border:1px solid #333;border-radius:5px;padding:5px 8px;font-size:12px}.study-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.study-card{background:#141414;border:1px solid #292929;border-radius:14px;padding:20px}.study-card p{font-size:13px;margin-bottom:8px}.timer{text-align:center;font-size:42px;font-weight:900;color:#d8a24a;margin:12px}.quiz-options button{display:block;width:100%;text-align:left;background:#0e0e0e;color:#fff;border:1px solid #333;border-radius:8px;padding:10px;margin:7px 0}.modal{position:fixed;inset:0;background:rgba(0,0,0,.82);display:none;align-items:center;justify-content:center;padding:20px;z-index:100}.modal.show{display:flex}.modal-box{width:min(520px,100%);max-height:90vh;overflow:auto;background:#151515;border:1px solid #333;border-radius:15px;padding:25px;position:relative}.close{position:absolute;right:13px;top:7px;background:none;border:0;color:#aaa;font-size:28px}.calc-row{display:flex;gap:8px;margin-top:16px}.calc-row input,.calc-row select{width:50%;background:#0b0b0b;color:#fff;border:1px solid #333;padding:12px;border-radius:7px}.result{margin-top:15px;color:#d8a24a;font-size:20px;font-weight:800}footer{border-top:1px solid #242424;background:#070707;padding:38px 22px;color:#777}.footer-inner{max-width:1120px;margin:auto;display:flex;justify-content:space-between;gap:30px}.footer-links{display:flex;gap:15px;flex-wrap:wrap}@media(max-width:760px){.navlinks{display:none}.cards,.tool-grid,.article-grid,.ai-grid,.study-grid{grid-template-columns:1fr}.footer-inner{flex-direction:column}.hero{min-height:560px}.section{padding:58px 18px}}
-</style></head><body>
-<header class="header"><div class="nav"><a class="logo" href="#top">Hassnain <span>Hub</span></a><nav class="navlinks"><a href="#categories">Categories</a><a href="#public-tools">Tools</a><a href="#ai-tools">AI</a><a href="#study">Study</a><a href="#cricket">Cricket</a><a href="#search">Search</a><a href="#articles">Articles</a></nav></div></header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hassnain Hub - AI tools, study tools, cricket scores, results, technology and useful guides.">
+<title>Hassnain Hub</title>
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#080808;
+color:#fff;
+line-height:1.7
+}
+a{text-decoration:none;color:inherit}
+.nav{
+position:sticky;
+top:0;
+z-index:1000;
+background:#080808;
+border-bottom:1px solid #222;
+padding:18px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center
+}
+.logo{font-size:28px;font-weight:800}
+.logo span,.gold{color:#e7ad4b}
+.navlinks{display:flex;gap:20px;font-size:14px;color:#aaa}
+.navlinks a:hover{color:#e7ad4b}
+.container{width:90%;max-width:1100px;margin:auto}
+.hero{text-align:center;padding:80px 10px 55px}
+.kicker{
+letter-spacing:7px;
+color:#e7ad4b;
+font-weight:bold;
+font-size:14px;
+text-transform:uppercase
+}
+.hero h1{font-size:58px;line-height:1.15;margin:15px 0}
+.hero p{color:#aaa;font-size:20px;max-width:700px;margin:auto}
+.section{padding:55px 0}
+.section-head{text-align:center;margin-bottom:35px}
+.section-head h2{font-size:42px;margin:5px 0}
+.section-head p{color:#999}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px
+}
+.card{
+background:#141414;
+border:1px solid #292929;
+border-radius:22px;
+padding:30px;
+transition:.2s;
+height:100%
+}
+.card:hover{border-color:#e7ad4b;transform:translateY(-3px)}
+.icon{font-size:40px}
+.card h3{font-size:25px;margin:12px 0}
+.card p{color:#aaa}
+.btn{
+display:inline-block;
+border:1px solid #e7ad4b;
+background:#e7ad4b;
+color:#111;
+padding:11px 18px;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer
+}
+.btn.alt{background:transparent;color:#e7ad4b}
+.btn:hover{opacity:.85}
+input,select{
+width:100%;
+padding:14px;
+margin:7px 0;
+border-radius:10px;
+border:1px solid #333;
+background:#0d0d0d;
+color:white;
+font-size:16px
+}
+.toolbox{
+background:#111;
+border:1px solid #292929;
+padding:25px;
+border-radius:18px;
+margin-top:20px
+}
+.result{
+padding:18px;
+margin-top:15px;
+border-radius:12px;
+background:#0b0b0b;
+border:1px solid #292929
+}
+.live{
+border-color:#e7ad4b;
+position:relative
+}
+.live-dot{
+display:inline-block;
+width:9px;height:9px;
+background:#e74b4b;
+border-radius:50%;
+margin-right:7px
+}
+.article{
+min-height:220px
+}
+.adbox{
+min-height:100px;
+border:1px dashed #444;
+border-radius:15px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#666;
+margin:30px 0
+}
+footer{
+border-top:1px solid #222;
+padding:45px 5%;
+text-align:center;
+color:#777
+}
+.small{font-size:13px;color:#777}
+.notice{
+background:#17120a;
+border:1px solid #6c5228;
+padding:20px;
+border-radius:15px;
+margin-bottom:20px
+}
+@media(max-width:700px){
+.navlinks{display:none}
+.hero h1{font-size:42px}
+.section-head h2{font-size:32px}
+.card{padding:24px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="nav">
+<a class="logo" href="#top">Hassnain <span>Hub</span></a>
+<nav class="navlinks">
+<a href="#categories">Categories</a>
+<a href="#tools">Tools</a>
+<a href="#cricket">Cricket</a>
+<a href="#study">Study</a>
+<a href="#articles">Articles</a>
+</nav>
+</header>
+
 <main id="top">
-<section class="hero"><div class="hero-inner"><div class="kicker">Useful. Simple. Updated.</div><h1>Technology made<br>easy for everyone.</h1><p>AI guides, technology tips, online work, gaming, creator guides, study tools, calculators and live cricket scores.</p><a class="btn primary" href="#categories">Explore Topics</a><a class="btn secondary" href="#public-tools">Free Tools</a></div></section>
-<section class="section" id="categories"><div class="section-head"><div class="kicker">Explore</div><h2>Popular Categories</h2><p>All category cards now open working content.</p></div><div class="cards">
-<a class="card" href="#article-ai"><div class="icon">🤖</div><h3>AI & Tools</h3><p>AI guides, prompts and useful AI services.</p></a><a class="card" href="#article-mobile"><div class="icon">📱</div><h3>Tech & Mobile</h3><p>Android tips, security and technology guides.</p></a><a class="card" href="#article-work"><div class="icon">💰</div><h3>Online Work</h3><p>Practical information about digital work.</p></a><a class="card" href="#article-gaming"><div class="icon">🎮</div><h3>Gaming</h3><p>Gaming tips and beginner guides.</p></a><a class="card" href="#article-creator"><div class="icon">🎥</div><h3>Creator Tips</h3><p>YouTube and social media tips.</p></a><a class="card" href="#study"><div class="icon">📚</div><h3>Students</h3><p>Study calculators, quiz and focus timer.</p></a></div></section>
-<section class="dark" id="public-tools"><div class="section"><div class="section-head"><div class="kicker">Free tools</div><h2>Everyday Useful Tools</h2><p>Everything runs in the browser.</p></div><div class="tool-grid">
-<div class="tool"><h3>🧮 Percentage</h3><p>Find a percentage of a number.</p><button onclick="openCalc('percentage')">Use Tool</button></div><div class="tool"><h3>🎂 Age</h3><p>Calculate age from date of birth.</p><button onclick="openCalc('age')">Use Tool</button></div><div class="tool"><h3>💰 Discount</h3><p>Calculate sale price and savings.</p><button onclick="openCalc('discount')">Use Tool</button></div><div class="tool"><h3>📊 BMI</h3><p>Calculate BMI.</p><button onclick="openCalc('bmi')">Use Tool</button></div><div class="tool"><h3>🔢 Average</h3><p>Calculate average numbers.</p><button onclick="openCalc('average')">Use Tool</button></div><div class="tool"><h3>🔄 Units</h3><p>Convert common length units.</p><button onclick="openCalc('units')">Use Tool</button></div><div class="tool"><h3>➕ Calculator</h3><p>Basic arithmetic.</p><button onclick="openCalc('simple')">Use Tool</button></div></div></div></section>
-<section class="section" id="ai-tools"><div class="section-head"><div class="kicker">AI tools</div><h2>AI Helper Center</h2><p>Useful local helpers plus direct AI services.</p></div><div class="ai-grid"><div class="ai-box"><h3>✨ Prompt Builder</h3><input id="promptTopic" placeholder="What do you want AI to do?"><select id="promptStyle"><option>Beginner friendly</option><option>Professional</option><option>Detailed</option><option>Short and simple</option></select><button class="btn primary" onclick="buildPrompt()">Create Prompt</button><div class="output" id="promptOutput">Your prompt appears here.</div><button class="btn secondary" onclick="copyOut('promptOutput')">Copy</button></div><div class="ai-box"><h3>🧠 Text Helper</h3><textarea id="aiText" rows="5" placeholder="Paste notes here..."></textarea><select id="aiMode"><option value="summary">Short summary</option><option value="outline">Outline</option><option value="keywords">Key words</option></select><button class="btn primary" onclick="localHelper()">Process Text</button><div class="output" id="aiOutput">Result appears here.</div></div></div><div class="cards" style="margin-top:18px"><div class="card"><h3>ChatGPT</h3><p>AI assistant for writing, learning and coding.</p><a class="btn secondary" href="https://chatgpt.com/" target="_blank" rel="noopener">Open</a></div><div class="card"><h3>Google Gemini</h3><p>Google's AI assistant.</p><a class="btn secondary" href="https://gemini.google.com/" target="_blank" rel="noopener">Open</a></div><div class="card"><h3>Claude</h3><p>AI assistant for writing and analysis.</p><a class="btn secondary" href="https://claude.ai/" target="_blank" rel="noopener">Open</a></div></div></section>
-<section class="dark" id="cricket"><div class="section"><div class="section-head"><div class="kicker">Live sports</div><h2>🏏 Live Cricket Scores</h2><p>Updates automatically every 60 seconds.</p></div><div class="live-box"><div class="live-toolbar"><strong id="cricketStatus">Loading live cricket...</strong><button class="btn primary" onclick="loadCricket()">Refresh Scores</button></div><div id="cricketMatches"><div class="status">Fetching matches...</div></div><a class="powered" href="https://sportscore.com/" target="_blank" rel="dofollow noopener">Powered by SportScore</a></div></div></section>
-<section class="section" id="study"><div class="section-head"><div class="kicker">Students</div><h2>📚 Study Tools</h2><p>Working study utilities.</p></div><div class="study-grid"><div class="study-card"><h3>📈 Marks %</h3><p>Calculate obtained marks percentage.</p><button class="btn primary" onclick="studyTool('marks')">Open</button></div><div class="study-card"><h3>🎯 GPA</h3><p>Average grade points.</p><button class="btn primary" onclick="studyTool('gpa')">Open</button></div><div class="study-card"><h3>⏱️ Focus Timer</h3><p>25-minute study session.</p><button class="btn primary" onclick="startTimer()">Start</button></div><div class="study-card"><h3>🧠 Quick Quiz</h3><p>Test your knowledge.</p><button class="btn primary" onclick="openQuiz()">Start</button></div></div><div class="ai-box" style="max-width:700px;margin:20px auto"><h3>Focus Timer</h3><div class="timer" id="timer">25:00</div><div style="text-align:center"><button class="btn primary" onclick="startTimer()">Start</button><button class="btn secondary" onclick="pauseTimer()">Pause</button><button class="btn secondary" onclick="resetTimer()">Reset</button></div></div></section>
-<section class="section" id="search"><div class="section-head"><div class="kicker">Find something useful</div><h2>Search Hassnain Hub</h2><p>Search categories, tools and articles.</p></div><div class="search-box"><input id="siteSearch" placeholder="Search AI, mobile, cricket, study..." oninput="searchSite()"><button onclick="searchSite()">Search</button><div class="search-result" id="searchResult"></div></div></section>
-<section class="section" id="articles"><div class="section-head"><div class="kicker">Hassnain Hub</div><h2>Latest Articles</h2><p>Every Read Article link works.</p></div><div class="article-grid"><article class="article-card"><div class="kicker">🤖 AI</div><div class="article-meta"><span>AI Guide</span><span>5 min</span></div><h3>5 Practical Ways to Use AI Every Day</h3><p>Beginner ideas for learning, writing and organizing.</p><a href="#article-ai">Read Article →</a></article><article class="article-card"><div class="kicker">📱 Mobile</div><div class="article-meta"><span>Android</span><span>4 min</span></div><h3>How to Keep Your Android Phone Fast</h3><p>Storage, updates and security habits.</p><a href="#article-mobile">Read Article →</a></article><article class="article-card"><div class="kicker">🎥 Creator</div><div class="article-meta"><span>YouTube</span><span>4 min</span></div><h3>Beginner YouTube Channel Checklist</h3><p>A practical starting checklist.</p><a href="#article-creator">Read Article →</a></article></div></section>
-<section class="section" id="article-ai"><div class="reading-box"><div class="kicker">AI Guide</div><h2>5 Practical Ways to Use AI Every Day</h2><p>AI can help with brainstorming, learning, outlining and organizing your own work.</p><h3>1. Brainstorm</h3><p>Give AI a clear goal and ask for several approaches.</p><h3>2. Learn</h3><p>Ask for beginner explanations, examples and practice questions.</p><h3>3. Outline</h3><p>Turn your main points into a logical article or video outline.</p><h3>4. Improve</h3><p>Ask for clearer wording while keeping your own ideas.</p></div></section>
-<section class="section" id="article-mobile"><div class="reading-box"><div class="kicker">Mobile Guide</div><h2>How to Keep Your Android Phone Fast</h2><p>Keep storage free, remove unused apps, install updates and restart when necessary.</p><h3>Security</h3><p>Use trusted app stores and avoid unknown APK files.</p></div></section>
-<section class="section" id="article-work"><div class="reading-box"><div class="kicker">Online Work</div><h2>Online Work: A Safe Beginner Approach</h2><p>Start with a real skill such as writing, design, video editing, web development or support.</p><h3>Avoid shortcuts</h3><p>Be careful with guaranteed-income promises and unnecessary fees.</p></div></section>
-<section class="section" id="article-gaming"><div class="reading-box"><div class="kicker">Gaming</div><h2>Gaming Basics for New Players</h2><p>Learn controls, sensitivity, graphics settings and the main objective before changing advanced settings.</p></div></section>
-<section class="section" id="article-creator"><div class="reading-box"><div class="kicker">Creator Guide</div><h2>Beginner YouTube Channel Checklist</h2><p>Choose a clear topic, consistent branding, useful titles and a realistic upload plan.</p></div></section>
-<section class="section" id="about"><div class="section-head"><div class="kicker">About</div><h2>Welcome to Hassnain Hub</h2><p>A personal platform for useful digital information and browser tools.</p></div></section>
-</main><footer><div class="footer-inner"><div><div class="logo">Hassnain <span>Hub</span></div><p>Useful technology, guides & tools.</p></div><div class="footer-links"><a href="#categories">Categories</a><a href="#public-tools">Tools</a><a href="#ai-tools">AI</a><a href="#study">Study</a><a href="#cricket">Cricket</a><a href="#articles">Articles</a></div></div></footer>
-<div class="modal" id="modal"><div class="modal-box"><button class="close" onclick="closeModal()">×</button><div class="kicker">Free Tool</div><h2 id="modalTitle">Tool</h2><div id="modalBody"></div></div></div>
+
+<section class="hero">
+<div class="kicker">Hassnain Hub</div>
+<h1>Useful Tools.<br><span class="gold">Useful Knowledge.</span></h1>
+<p>AI tools, study help, cricket scores, results, technology guides and practical resources in one place.</p>
+<br>
+<a class="btn" href="#categories">Explore Now →</a>
+</section>
+
+<div class="container">
+
+<div class="adbox">
+ADVERTISEMENT
+</div>
+
+<section id="categories" class="section">
+<div class="section-head">
+<div class="kicker">Explore</div>
+<h2>Popular Categories</h2>
+<p>Choose a category and start using the available tools.</p>
+</div>
+
+<div class="grid">
+
+<a class="card" href="#tools">
+<div class="icon">🤖</div>
+<h3>AI & Tools</h3>
+<p>AI helpers, prompts, calculators and useful online tools.</p>
+</a>
+
+<a class="card" href="#study">
+<div class="icon">📚</div>
+<h3>Study Tools</h3>
+<p>Percentage calculator, study helper and useful student resources.</p>
+</a>
+
+<a class="card" href="#cricket">
+<div class="icon">🏏</div>
+<h3>Live Cricket</h3>
+<p>Check current cricket matches and scores.</p>
+</a>
+
+<a class="card" href="#result">
+<div class="icon">🎓</div>
+<h3>9th Class Result</h3>
+<p>Punjab 9th class result information and official result access.</p>
+</a>
+
+<a class="card" href="#articles">
+<div class="icon">💻</div>
+<h3>Tech & Mobile</h3>
+<p>Android tips, security and technology guides.</p>
+</a>
+
+<a class="card" href="#articles">
+<div class="icon">💼</div>
+<h3>Online Work</h3>
+<p>Practical information about digital work and freelancing.</p>
+</a>
+
+<a class="card" href="#articles">
+<div class="icon">🎮</div>
+<h3>Gaming</h3>
+<p>Gaming tips and beginner guides.</p>
+</a>
+
+<a class="card" href="#articles">
+<div class="icon">🎥</div>
+<h3>Creator Tips</h3>
+<p>YouTube and social media creator guides.</p>
+</a>
+
+</div>
+</section>
+
+<section id="tools" class="section">
+<div class="section-head">
+<div class="kicker">AI & Tools</div>
+<h2>Useful Tools</h2>
+<p>Simple tools that work directly in your browser.</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">🧮</div>
+<h3>Percentage Calculator</h3>
+<input id="percentA" type="number" placeholder="Obtained marks">
+<input id="percentB" type="number" placeholder="Total marks">
+<button class="btn" onclick="percentage()">Calculate</button>
+<div id="percentResult" class="result">Enter your marks.</div>
+</div>
+
+<div class="card">
+<div class="icon">✍️</div>
+<h3>AI Prompt Helper</h3>
+<p>Write your topic and get a ready-to-use prompt.</p>
+<input id="promptTopic" placeholder="Example: YouTube video">
+<button class="btn" onclick="makePrompt()">Create Prompt</button>
+<div id="promptResult" class="result">Your prompt will appear here.</div>
+</div>
+
+<div class="card">
+<div class="icon">📝</div>
+<h3>Study Helper</h3>
+<p>Generate a simple study plan from your subject.</p>
+<input id="studySubject" placeholder="Example: English">
+<button class="btn" onclick="studyPlan()">Make Plan</button>
+<div id="studyResult" class="result">Enter a subject.</div>
+</div>
+
+</div>
+</section>
+
+<section id="study" class="section">
+<div class="section-head">
+<div class="kicker">Students</div>
+<h2>Study Tools</h2>
+<p>Quick resources for students.</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">📖</div>
+<h3>Study Method</h3>
+<p>25 minutes study → 5 minutes break. Repeat four times, then take a longer break.</p>
+</div>
+
+<div class="card">
+<div class="icon">🎯</div>
+<h3>Daily Goal</h3>
+<p>Choose one topic, understand it, practise questions and review your mistakes.</p>
+</div>
+
+<div class="card">
+<div class="icon">🧠</div>
+<h3>AI Learning Prompt</h3>
+<p>Ask an AI: “Explain this topic like a beginner, give examples and then quiz me.”</p>
+</div>
+
+</div>
+</section>
+
+<section id="result" class="section">
+<div class="section-head">
+<div class="kicker">Education</div>
+<h2>9th Class Result 2026</h2>
+<p>Punjab Boards — important result information</p>
+</div>
+
+<div class="notice">
+<strong>🎓 Result Date: 2 September 2026</strong><br>
+The announced schedule reported for Punjab 9th class results is 2 September 2026 at 10:00 AM. Always verify the result on your own board's official website.
+</div>
+
+<div class="card">
+<h3>Check Your Result</h3>
+<p>When the result is released, use the official board result system. Select your board and enter your roll number.</p>
+
+<div class="grid">
+<a class="btn" target="_blank"
+href="https://home.biselahore.com/">
+BISE Lahore
+</a>
+
+<a class="btn" target="_blank"
+href="https://www.biseresult.com/">
+BISE Result Portal
+</a>
+
+<a class="btn alt" target="_blank"
+href="https://www.bisesargodha.edu.pk/">
+BISE Sargodha
+</a>
+</div>
+
+<p class="small">
+For Hafizabad/Gujranwala students, use the official BISE Gujranwala result system when the result is released.
+</p>
+</div>
+</section>
+
+<section id="cricket" class="section">
+<div class="section-head">
+<div class="kicker">Live Sports</div>
+<h2>🏏 Live Cricket Scores</h2>
+<p>Press refresh to load current cricket information.</p>
+</div>
+
+<div class="card live">
+<h3><span class="live-dot"></span> Cricket Live Centre</h3>
+
+<button class="btn" onclick="loadCricket()">Refresh Scores</button>
+
+<div id="cricketStatus" class="result">
+Loading cricket information...
+</div>
+
+<div id="cricketMatches"></div>
+
+<p class="small">
+Live data depends on the availability of the external cricket data service.
+</p>
+</div>
+</section>
+
+<section id="articles" class="section">
+<div class="section-head">
+<div class="kicker">Latest Articles</div>
+<h2>Useful Guides</h2>
+<p>Practical information for everyday users.</p>
+</div>
+
+<div class="grid">
+
+<article class="card article">
+<div class="kicker">AI</div>
+<h3>5 Practical Ways to Use AI Every Day</h3>
+<p>Use AI for brainstorming, learning, outlining and improving your own work.</p>
+<button class="btn alt" onclick="openArticle('AI Guide','AI can help with brainstorming, learning, outlining and organizing your own work. Always review important information.')">
+Read Article →
+</button>
+</article>
+
+<article class="card article">
+<div class="kicker">Mobile</div>
+<h3>How to Keep Your Android Phone Fast</h3>
+<p>Keep storage free, remove unused apps, install updates and restart when necessary.</p>
+<button class="btn alt" onclick="openArticle('Android Guide','Keep storage free, remove unused apps, install system updates and restart the phone when necessary. Use trusted app stores and avoid unknown APK files.')">
+Read Article →
+</button>
+</article>
+
+<article class="card article">
+<div class="kicker">Creator</div>
+<h3>Beginner YouTube Channel Checklist</h3>
+<p>Choose a clear topic, consistent branding, useful titles and a realistic upload plan.</p>
+<button class="btn alt" onclick="openArticle('YouTube Guide','Choose a clear topic, create consistent branding, write useful titles and follow a realistic upload plan.')">
+Read Article →
+</button>
+</article>
+
+<article class="card article">
+<div class="kicker">Online Work</div>
+<h3>Online Work: A Safe Beginner Approach</h3>
+<p>Start with a real skill such as writing, design, video editing, web development or support.</p>
+<button class="btn alt" onclick="openArticle('Online Work Guide','Start with a real skill and be careful with guaranteed-income promises and unnecessary fees.')">
+Read Article →
+</button>
+</article>
+
+<article class="card article">
+<div class="kicker">Gaming</div>
+<h3>Gaming Basics for New Players</h3>
+<p>Learn controls, sensitivity, graphics settings and the main objective before changing advanced settings.</p>
+<button class="btn alt" onclick="openArticle('Gaming Guide','Learn the controls, sensitivity, graphics settings and main objective before changing advanced settings.')">
+Read Article →
+</button>
+</article>
+
+</div>
+</section>
+
+<div class="adbox">
+ADVERTISEMENT
+</div>
+
+<section class="section">
+<div class="section-head">
+<div class="kicker">Google</div>
+<h2>Google Studio</h2>
+<p>Connect your future AI/Google Studio project here.</p>
+</div>
+
+<div class="card">
+<h3>🚀 Google AI / Studio</h3>
+<p>
+This website can be connected to a real Google AI Studio project after the required API/project credentials are configured.
+</p>
+<a class="btn" target="_blank"
+href="https://aistudio.google.com/">
+Open Google AI Studio
+</a>
+</div>
+</section>
+
+</div>
+</main>
+
+<footer>
+<strong>Hassnain <span class="gold">Hub</span></strong>
+<p>Useful technology, education, AI and digital resources.</p>
+<p class="small">© 2026 Hassnain Hub</p>
+</footer>
+
 <script>
-const $=id=>document.getElementById(id);function openModal(t,b){$('modalTitle').textContent=t;$('modalBody').innerHTML=b;$('modal').classList.add('show')}function closeModal(){$('modal').classList.remove('show')}$('modal').onclick=e=>{if(e.target.id==='modal')closeModal()};
-function openCalc(t){let b='';if(t==='percentage')b='<div class="calc-row"><input id="a" type="number" placeholder="Number"><input id="b" type="number" placeholder="Percent"></div><button class="btn primary" onclick="pct()">Calculate</button><div class="result" id="r"></div>';if(t==='age')b='<input id="dob" type="date" style="width:100%;margin:15px 0;background:#0b0b0b;color:#fff;border:1px solid #333;padding:12px"><button class="btn primary" onclick="age()">Calculate</button><div class="result" id="r"></div>';if(t==='discount')b='<div class="calc-row"><input id="p" type="number" placeholder="Price"><input id="d" type="number" placeholder="Discount %"></div><button class="btn primary" onclick="discount()">Calculate</button><div class="result" id="r"></div>';if(t==='bmi')b='<div class="calc-row"><input id="w" type="number" placeholder="Weight kg"><input id="h" type="number" placeholder="Height cm"></div><button class="btn primary" onclick="bmi()">Calculate</button><div class="result" id="r"></div>';if(t==='average')b='<input id="nums" placeholder="10,20,30" style="width:100%;margin:15px 0;background:#0b0b0b;color:#fff;border:1px solid #333;padding:12px"><button class="btn primary" onclick="avg()">Calculate</button><div class="result" id="r"></div>';if(t==='units')b='<div class="calc-row"><input id="uv" type="number" placeholder="Value"><select id="ut"><option value="mf">Meters → Feet</option><option value="fm">Feet → Meters</option><option value="mk">Meters → Kilometers</option><option value="km">Kilometers → Meters</option></select></div><button class="btn primary" onclick="units()">Convert</button><div class="result" id="r"></div>';if(t==='simple')b='<div class="calc-row"><input id="x" type="number" placeholder="Number"><input id="y" type="number" placeholder="Number"></div><button class="btn primary" onclick="simple(\'+\')">+</button><button class="btn secondary" onclick="simple(\'-\')">−</button><button class="btn secondary" onclick="simple(\'*\')">×</button><button class="btn secondary" onclick="simple(\'/\')">÷</button><div class="result" id="r"></div>';openModal('Calculator',b)}
-function pct(){let a=+$('a').value,b=+$('b').value;$('r').textContent=Number.isFinite(a)&&Number.isFinite(b)?(a*b/100).toFixed(2):'Enter both numbers.'}function age(){let d=new Date($('dob').value),t=new Date();if(isNaN(d))return;$('r').textContent=(t.getFullYear()-d.getFullYear()-(t.getMonth()<d.getMonth()||t.getMonth()===d.getMonth()&&t.getDate()<d.getDate()?1:0))+' years old'}function discount(){let p=+$('p').value,d=+$('d').value,s=p*d/100;$('r').textContent=Number.isFinite(s)?'Save '+s.toFixed(2)+' — Sale '+(p-s).toFixed(2):'Enter values.'}function bmi(){let w=+$('w').value,h=+$('h').value/100;$('r').textContent=w>0&&h>0?'BMI: '+(w/(h*h)).toFixed(1):'Enter valid values.'}function avg(){let a=$('nums').value.split(',').map(Number).filter(Number.isFinite);$('r').textContent=a.length?'Average: '+(a.reduce((x,y)=>x+y,0)/a.length).toFixed(2):'Enter numbers.'}function units(){let v=+$('uv').value,t=$('ut').value,r=t==='mf'?v*3.28084:t==='fm'?v/3.28084:t==='mk'?v/1000:v*1000;$('r').textContent=Number.isFinite(r)?r.toFixed(4):'Enter a value.'}function simple(o){let x=+$('x').value,y=+$('y').value;if(o==='/'&&y===0){$('r').textContent='Cannot divide by zero';return}$('r').textContent=o==='+'?x+y:o==='-'?x-y:o==='*'?x*y:x/y}
-function studyTool(t){if(t==='marks')openModal('Marks Percentage','<div class="calc-row"><input id="om" type="number" placeholder="Obtained"><input id="tm" type="number" placeholder="Total"></div><button class="btn primary" onclick="marks()">Calculate</button><div class="result" id="r"></div>');else openModal('GPA Calculator','<input id="gp" placeholder="4,3.5,3,4" style="width:100%;margin:15px 0;background:#0b0b0b;color:#fff;border:1px solid #333;padding:12px"><button class="btn primary" onclick="gpa()">Calculate</button><div class="result" id="r"></div>')}function marks(){let a=+$('om').value,b=+$('tm').value;$('r').textContent=b>0?(a/b*100).toFixed(2)+'%':'Enter valid marks.'}function gpa(){let a=$('gp').value.split(',').map(Number).filter(Number.isFinite);$('r').textContent=a.length?'GPA: '+(a.reduce((x,y)=>x+y,0)/a.length).toFixed(2):'Enter grade points.'}
-let secs=1500,timerId=null;function draw(){let m=Math.floor(secs/60),s=secs%60;$('timer').textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}function startTimer(){if(timerId)return;timerId=setInterval(()=>{if(secs>0){secs--;draw()}else{clearInterval(timerId);timerId=null;alert('Study session complete!')}},1000)}function pauseTimer(){clearInterval(timerId);timerId=null}function resetTimer(){pauseTimer();secs=1500;draw()}draw();
-const quiz=[['What does HTML stand for?',['HyperText Markup Language','HighText Machine Language','Home Tool Markup Language'],0],['Red Planet?',['Earth','Mars','Jupiter'],1],['Which is a storage device?',['SSD','Monitor','Keyboard'],0]];let qi=0,qs=0;function openQuiz(){qi=0;qs=0;openModal('Quick Quiz','<div id="qa"></div>');showQ()}function showQ(){let q=quiz[qi];$('qa').innerHTML='<h3>'+(qi+1)+'. '+q[0]+'</h3><div class="quiz-options">'+q[1].map((x,i)=>'<button onclick="ans('+i+')">'+x+'</button>').join('')+'</div>'}function ans(i){if(i===quiz[qi][2])qs++;qi++;if(qi<quiz.length)showQ();else $('qa').innerHTML='<h3>Quiz complete!</h3><p style="color:#aaa">Score: '+qs+'/'+quiz.length+'</p><button class="btn primary" onclick="closeModal()">Done</button>'}
-function buildPrompt(){let t=$('promptTopic').value.trim()||'this task',s=document.getElementById('promptStyle').value;$('promptOutput').textContent='Act as a helpful expert. Help me with '+t+'. Style: '+s+'. Give accurate, practical, step-by-step guidance with headings and examples where useful.'}function localHelper(){let t=$('aiText').value.trim();if(!t){$('aiOutput').textContent='Paste text first.';return}let mode=$('aiMode').value,s=t.split(/(?<=[.!?])\s+/).filter(Boolean);if(mode==='summary')$('aiOutput').textContent=s.slice(0,3).join(' ');else if(mode==='outline')$('aiOutput').textContent=s.slice(0,8).map((x,i)=>(i+1)+'. '+x).join('\n');else{$('aiOutput').textContent=[...new Set(t.toLowerCase().replace(/[^a-z0-9\s]/g,'').split(/\s+/).filter(x=>x.length>4))].slice(0,12).join(', ')}}function copyOut(id){navigator.clipboard?.writeText($(id).textContent)}
-const items=[['AI Helper Center','ai prompt chatgpt','#ai-tools'],['Live Cricket Scores','cricket sports score','#cricket'],['Study Tools','study students marks gpa quiz','#study'],['Percentage Calculator','calculator','#public-tools'],['Android Phone Guide','mobile tech android','#article-mobile'],['Online Work Guide','online work','#article-work'],['Gaming Guide','gaming','#article-gaming'],['YouTube Creator Guide','creator youtube','#article-creator'],['AI Guide','artificial intelligence','#article-ai']];function searchSite(){let q=$('siteSearch').value.trim().toLowerCase();if(!q){$('searchResult').textContent='Type a topic to search.';return}let f=items.filter(x=>(x[0]+' '+x[1]).toLowerCase().includes(q));$('searchResult').innerHTML=f.length?f.map(x=>'<a href="'+x[2]+'" style="color:#d8a24a;font-weight:800;margin-right:12px">'+x[0]+' →</a>').join(''):'No matching topic yet.'}
-function nameOf(m){return m?.name||m?.title||m?.match_name||m?.event_name||'Cricket match'}function scoreOf(m){let a=m?.teams||m?.competitors||m?.sides||[];if(Array.isArray(a)&&a.length)return a.map(t=>(t.name||t.team_name||t.short_name||'Team')+(t.score?' — '+t.score:t.runs?' — '+t.runs:'')).join('<br>');return m?.score||'Score details unavailable'}async function loadCricket(){let st=$('cricketStatus'),box=$('cricketMatches');st.textContent='Updating scores...';try{let r=await fetch('https://sportscore.com/api/widget/matches/?sport=cricket&limit=20&src=hassnain-hub',{cache:'no-store'});if(!r.ok)throw 0;let d=await r.json(),ms=Array.isArray(d)?d:(d.matches||d.data||d.events||[]);if(!ms.length){st.textContent='No live/recent match returned';box.innerHTML='<div class="status">No match is being returned right now. Refresh during a live match.</div>';return}st.textContent='Cricket updated just now';box.innerHTML=ms.slice(0,12).map(m=>'<div class="match"><strong>'+nameOf(m)+'</strong><div class="score">'+scoreOf(m)+'</div><div class="status">'+(m.status||m.state||m.match_status||'')+'</div></div>').join('')}catch(e){st.textContent='Live score provider unavailable';box.innerHTML='<div class="status">Live scores could not be loaded right now. Tap Refresh Scores again. Other tools are independent and continue working.</div>'}}loadCricket();setInterval(loadCricket,60000);
-</script></body></html>
+function percentage(){
+const a=parseFloat(document.getElementById("percentA").value);
+const b=parseFloat(document.getElementById("percentB").value);
+
+if(!Number.isFinite(a)||!Number.isFinite(b)||b<=0){
+document.getElementById("percentResult").textContent="Please enter valid marks.";
+return;
+}
+
+const p=(a/b)*100;
+document.getElementById("percentResult").textContent=
+"Percentage: "+p.toFixed(2)+"%";
+}
+
+function makePrompt(){
+const topic=document.getElementById("promptTopic").value.trim();
+
+if(!topic){
+document.getElementById("promptResult").textContent="Please enter a topic.";
+return;
+}
+
+document.getElementById("promptResult").textContent=
+"Act as an expert teacher and content creator. Help me with: "+
+topic+
+". Explain it simply, give practical examples, common mistakes and a short quiz.";
+}
+
+function studyPlan(){
+const subject=document.getElementById("studySubject").value.trim();
+
+if(!subject){
+document.getElementById("studyResult").textContent="Please enter a subject.";
+return;
+}
+
+document.getElementById("studyResult").innerHTML=
+"<strong>"+subject+" Study Plan</strong><br>"+
+"1. 20 min — Learn the main concept.<br>"+
+"2. 20 min — Study examples.<br>"+
+"3. 20 min — Practise questions.<br>"+
+"4. 10 min — Review mistakes.<br>"+
+"5. 5 min — Quick self-test.";
+}
+
+function openArticle(title,body){
+alert(title+"\\n\\n"+body);
+}
+
+/*
+Cricket:
+ESPN's cricket APIs require series/league discovery.
+We first ask the personalized cricket scoreboard header for
+active series and then request available scoreboard data.
+*/
+
+async function loadCricket(){
+
+const status=document.getElementById("cricketStatus");
+const box=document.getElementById("cricketMatches");
+
+status.innerHTML="Loading live cricket data...";
+box.innerHTML="";
+
+try{
+
+const headerUrl=
+"https://site.api.espn.com/apis/personalized/v2/scoreboard/header?sport=cricket&region=in&tz=Asia/Calcutta";
+
+const h=await fetch(headerUrl,{cache:"no-store"});
+
+if(!h.ok) throw new Error("Cricket service unavailable");
+
+const data=await h.json();
+
+const sports=data.sports||[];
+const leagues=(sports[0]&&sports[0].leagues)||[];
+
+if(!leagues.length){
+status.innerHTML="No active cricket series found right now.";
+return;
+}
+
+let total=0;
+
+for(const league of leagues.slice(0,12)){
+
+const id=league.id;
+
+try{
+
+const url=
+"https://site.api.espn.com/apis/site/v2/sports/cricket/"+
+encodeURIComponent(id)+"/scoreboard";
+
+const r=await fetch(url,{cache:"no-store"});
+
+if(!r.ok) continue;
+
+const j=await r.json();
+
+const events=j.events||[];
+
+for(const event of events){
+
+total++;
+
+let competitors=[];
+
+try{
+competitors=event.competitions?.[0]?.competitors||[];
+}catch(e){}
+
+let scores=competitors.map(c=>{
+const team=c.team?.displayName||
+c.team?.shortDisplayName||
+c.team?.name||
+"Team";
+
+const score=c.score||
+(c.linescores&&c.linescores.length?
+c.linescores.map(x=>x.value).join(" / "):"");
+
+return "<strong>"+escapeHtml(team)+
+"</strong> — "+escapeHtml(String(score||"Score unavailable"));
+}).join("<br>");
+
+const statusText=
+event.status?.type?.shortDetail||
+event.status?.type?.detail||
+"Match";
+
+box.innerHTML+=
+'<div class="result" style="margin-top:15px">'+
+"<h3>🏏 "+escapeHtml(event.name||"Cricket match")+"</h3>"+
+"<div class='gold'>"+scores+"</div>"+
+"<p>"+escapeHtml(statusText)+"</p>"+
+"</div>";
+}
+
+}catch(e){}
+}
+
+if(total===0){
+status.innerHTML=
+"No live/upcoming score was returned right now. Tap Refresh Scores again during a match.";
+}else{
+status.innerHTML=
+"Cricket updated just now — "+total+" match/event(s) found.";
+}
+
+}catch(error){
+
+status.innerHTML=
+"Live cricket data could not be loaded right now. Please try Refresh Scores again.";
+
+box.innerHTML=
+'<div class="result">The website is working, but the external cricket data service did not respond.</div>';
+}
+}
+
+function escapeHtml(value){
+return value
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
+}
+
+loadCricket();
+</script>
+
+</body>
+</html>
