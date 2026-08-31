@@ -1,2067 +1,1144 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Hassnain Hub - AI Image Creator, 9th Class Results, Unit Calculator and Hassnain AI Chat.">
-<title>Hassnain Hub</title>
-
-<style>
-:root{
---bg:#070707;
---panel:#111;
---panel2:#151515;
---line:#292929;
---gold:#e7ad4b;
---muted:#a7a7a7;
---white:#fff;
-}
-
-*{box-sizing:border-box}
-
-html{scroll-behavior:smooth}
-
-body{
-margin:0;
-background:var(--bg);
-color:var(--white);
-font-family:Arial,Helvetica,sans-serif;
-line-height:1.6;
-}
-
-a{
-text-decoration:none;
-color:inherit;
-}
-
-button,input,textarea,select{
-font:inherit;
-}
-
-button{
-cursor:pointer;
-}
-
-.nav{
-position:sticky;
-top:0;
-z-index:50;
-background:rgba(7,7,7,.94);
-backdrop-filter:blur(12px);
-border-bottom:1px solid var(--line);
-}
-
-.nav-inner{
-width:min(1180px,92%);
-margin:auto;
-min-height:72px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:20px;
-}
-
-.logo{
-font-size:25px;
-font-weight:800;
-}
-
-.logo span{
-color:var(--gold);
-}
-
-.navlinks{
-display:flex;
-gap:20px;
-color:#aaa;
-font-size:14px;
-}
-
-.navlinks a:hover{
-color:var(--gold);
-}
-
-.container{
-width:min(1180px,92%);
-margin:auto;
-}
-
-.hero{
-text-align:center;
-padding:78px 10px 45px;
-}
-
-.kicker{
-color:var(--gold);
-font-size:12px;
-font-weight:800;
-letter-spacing:6px;
-text-transform:uppercase;
-}
-
-.hero h1{
-font-size:clamp(42px,7vw,72px);
-line-height:1.08;
-margin:12px 0;
-}
-
-.gold{
-color:var(--gold);
-}
-
-.hero p{
-max-width:760px;
-margin:0 auto;
-color:var(--muted);
-font-size:18px;
-}
-
-.section{
-padding:55px 0;
-}
-
-.section-head{
-text-align:center;
-margin-bottom:30px;
-}
-
-.section-head h2{
-font-size:clamp(32px,5vw,48px);
-margin:7px 0;
-}
-
-.section-head p{
-color:var(--muted);
-margin:0 auto;
-max-width:720px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(2,minmax(0,1fr));
-gap:22px;
-}
-
-.card{
-background:linear-gradient(180deg,var(--panel2),var(--panel));
-border:1px solid var(--line);
-border-radius:22px;
-padding:28px;
-box-shadow:0 15px 45px rgba(0,0,0,.22);
-}
-
-.card:hover{
-border-color:#6c5228;
-}
-
-.icon{
-font-size:38px;
-}
-
-.card h3{
-font-size:25px;
-margin:10px 0;
-}
-
-.card p{
-color:var(--muted);
-}
-
-.btn{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-gap:8px;
-min-height:46px;
-padding:11px 18px;
-border-radius:12px;
-border:1px solid var(--gold);
-background:var(--gold);
-color:#111;
-font-weight:800;
-transition:.15s;
-}
-
-.btn:hover{
-transform:translateY(-1px);
-opacity:.92;
-}
-
-.btn.alt{
-background:transparent;
-color:var(--gold);
-}
-
-.btn:disabled{
-opacity:.45;
-cursor:not-allowed;
-transform:none;
-}
-
-.input,.textarea,.select{
-width:100%;
-background:#0b0b0b;
-color:#fff;
-border:1px solid #333;
-border-radius:13px;
-padding:14px 15px;
-outline:none;
-margin-top:10px;
-}
-
-.input:focus,.textarea:focus,.select:focus{
-border-color:var(--gold);
-}
-
-.textarea{
-min-height:130px;
-resize:vertical;
-}
-
-.row{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
-}
-
-.actions{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-margin-top:13px;
-}
-
-.status{
-margin-top:14px;
-padding:13px 15px;
-border-radius:12px;
-background:#0b0b0b;
-border:1px solid var(--line);
-color:#ddd;
-}
-
-.status.ok{
-border-color:#4c6a3b;
-}
-
-.status.err{
-border-color:#704040;
-}
-
-.notice{
-background:#17120a;
-border:1px solid #6c5228;
-border-radius:16px;
-padding:17px;
-margin-bottom:18px;
-}
-
-.adbox{
-min-height:90px;
-border:1px dashed #3b3b3b;
-border-radius:16px;
-display:flex;
-align-items:center;
-justify-content:center;
-color:#555;
-margin:25px 0;
-}
-
-.board-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:12px;
-}
-
-.board{
-padding:15px;
-border:1px solid var(--line);
-border-radius:14px;
-background:#0c0c0c;
-color:#ddd;
-font-weight:700;
-text-align:center;
-}
-
-.board:hover{
-border-color:var(--gold);
-color:var(--gold);
-}
-
-.preview{
-margin-top:18px;
-border:1px solid var(--line);
-border-radius:18px;
-padding:14px;
-background:#080808;
-text-align:center;
-}
-
-.preview img{
-max-width:100%;
-max-height:600px;
-border-radius:12px;
-display:block;
-margin:auto;
-}
-
-.file-label{
-display:flex;
-align-items:center;
-justify-content:center;
-min-height:52px;
-border:1px dashed #555;
-border-radius:13px;
-background:#0b0b0b;
-color:#ddd;
-padding:10px;
-text-align:center;
-cursor:pointer;
-}
-
-.file-label:hover{
-border-color:var(--gold);
-}
-
-.file-label input{
-display:none;
-}
-
-.chatbox{
-min-height:260px;
-max-height:520px;
-overflow:auto;
-padding:15px;
-background:#090909;
-border:1px solid var(--line);
-border-radius:17px;
-}
-
-.msg{
-max-width:88%;
-padding:12px 14px;
-border-radius:15px;
-margin:9px 0;
-white-space:pre-wrap;
-overflow-wrap:anywhere;
-}
-
-.msg.user{
-margin-left:auto;
-background:#211a0d;
-border:1px solid #4c3b20;
-}
-
-.msg.ai{
-background:#151515;
-border:1px solid #2c2c2c;
-}
-
-.chat-form{
-margin-top:12px;
-}
-
-.counter{
-color:#999;
-font-size:13px;
-margin-top:8px;
-}
-
-.small{
-font-size:13px;
-color:#777;
-}
-
-footer{
-border-top:1px solid #222;
-padding:40px 0;
-text-align:center;
-color:#777;
-}
-
-.hidden{
-display:none!important;
-}
-
-@media(max-width:760px){
-
-.nav-inner{
-min-height:62px;
-}
-
-.navlinks{
-display:none;
-}
-
-.hero{
-padding-top:55px;
-}
-
-.grid{
-grid-template-columns:1fr;
-}
-
-.row{
-grid-template-columns:1fr;
-}
-
-.board-grid{
-grid-template-columns:1fr 1fr;
-}
-
-.card{
-padding:21px;
-}
-
-}
-
-@media(max-width:430px){
-
-.board-grid{
-grid-template-columns:1fr;
-}
-
-.btn{
-width:100%;
-}
-
-}
-</style>
-
-<script src="https://js.puter.com/v2/"></script>
-</head>
-
-<body>
-
-<header class="nav">
-
-<div class="nav-inner">
-
-<a class="logo" href="#top">
-Hassnain <span>Hub</span>
-</a>
-
-<nav class="navlinks">
-<a href="#image">AI Image</a>
-<a href="#result">9th Result</a>
-<a href="#calculator">Calculator</a>
-<a href="#chat">Hassnain AI</a>
-</nav>
-
-</div>
-
-</header>
-
-<main id="top">
-
-<section class="hero">
-
-<div class="kicker">
-Hassnain Hub
-</div>
-
-<h1>
-Four Useful Tools.<br>
-<span class="gold">One Simple Website.</span>
-</h1>
-
-<p>
-AI image editing, 9th class results, practical unit calculations and Hassnain AI Chat — designed for mobile and desktop.
-</p>
-
-</section>
-
-<div class="container">
-
-<div class="adbox">
-ADVERTISEMENT
-</div>
-
-
-<!-- AI IMAGE -->
-
-<section id="image" class="section">
-
-<div class="section-head">
-
-<div class="kicker">
-AI Creator
-</div>
-
-<h2>
-🎨 AI Image Creator
-</h2>
-
-<p>
-Upload your own photo first, then describe what you want in Urdu, Punjabi, English or another language.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="notice">
-
-<strong>
-📸 Your own photo is required.
-</strong>
-
-<br>
-
-Select a photo before generating.
-
-Daily limit:
-
-<strong>
-5 images per device
-</strong>
-
-</div>
-
-
-<label class="file-label">
-
-<input
-id="imageFile"
-type="file"
-accept="image/*"
->
-
-<span id="fileText">
-📷 Choose your photo
-</span>
-
-</label>
-
-
-<div id="sourcePreview" class="preview hidden">
-
-<img
-id="sourceImg"
-alt="Your selected photo"
->
-
-</div>
-
-
-<textarea
-id="imagePrompt"
-class="textarea"
-placeholder="مثال: میری تصویر کو خوبصورت پاکستانی گاؤں کے منظر میں cinematic realistic style میں بنائیں۔"
-></textarea>
-
-
-<div class="actions">
-
-<button
-id="generateBtn"
-class="btn"
-onclick="generateImage()"
->
-✨ Generate Image
-</button>
-
-<button
-class="btn alt"
-onclick="clearImageTool()"
->
-Clear
-</button>
-
-</div>
-
-
-<div
-id="imageStatus"
-class="status"
->
-Upload a photo and enter an idea.
-</div>
-
-
-<div
-id="resultPreview"
-class="preview hidden"
->
-
-<img
-id="generatedImg"
-alt="Generated image"
->
-
-<div
-class="actions"
-style="justify-content:center"
->
-
-<button
-id="saveBtn"
-class="btn"
-onclick="saveImage()"
->
-📱 Save to Gallery
-</button>
-
-<button
-id="openBtn"
-class="btn alt"
-onclick="openGenerated()"
->
-Open Image
-</button>
-
-</div>
-
-</div>
-
-
-<div
-class="counter"
-id="imageCounter"
->
-5 images remaining today.
-</div>
-
-
-<p class="small">
-AI image editing is provided through Puter.js. The service may ask the visitor to sign in.
-</p>
-
-</div>
-
-</section>
-
-
-
-<!-- RESULT -->
-
-<section id="result" class="section">
-
-<div class="section-head">
-
-<div class="kicker">
-Education
-</div>
-
-<h2>
-🎓 9th Class Result 2026
-</h2>
-
-<p>
-Official board links in one place. Always verify the result on the relevant board website.
-</p>
-
-</div>
-
-
-<div class="notice">
-
-<strong>
-📅 Punjab 9th Class Result
-</strong>
-
-<br>
-
-The website does not invent result marks or dates. Use the official board link below when results are released.
-
-</div>
-
-
-<div class="card">
-
-<h3>
-Punjab Boards
-</h3>
-
-
-<div class="board-grid">
-
-<a
-class="board"
-target="_blank"
-rel="noopener"
-href="https://result.biselahore.com/"
->
-BISE Lahore
-</a>
-
-<a
-class="board"
-target="_blank"
-rel="noopener"
-href="https://www.bisegrw.edu.pk/"
->
-BISE Gujranwala
-</a>
-
-<a
-class="board"
-target="_blank"
-rel="noopener"
-href="https://www.bisefsd.edu.pk/"
->
-BISE Faisalabad
-</a>
-
-<a
-class="board"
-target="_blank"
-rel="noopener"
-href="https://web.bisemultan.edu.pk/"
->
-BISE Multan
-</a>
-
-<a
-class="board"
-target="_blank"
-rel="noopener"
-href="https://www.bisesargodha.edu.pk/"
->
-BISE Sargodha
-</a>
-
-<a
-class="board"
-target="_blank"
-rel="noopener"
-href="https://www.biserwp.edu.pk/"
->
-BISE Rawalpindi
-</a>
-
-<a
-class="board"
-target="_blank"
-rel="noopener"
-href="https://bisebwp.edu.pk/"
->
-BISE Bahawalpur
-</a>
-
-<a
-class="board"
-target="_blank"
-rel="noopener"
-href="https://www.bisedgkhan.edu.pk/"
->
-BISE D.G. Khan
-</a>
-
-<a
-class="board"
-target="_blank"
-rel="noopener"
-href="https://bisesahiwal.edu.pk/"
->
-BISE Sahiwal
-</a>
-
-</div>
-
-
-<h3 style="margin-top:30px">
-🇵🇰 Other Pakistan Boards
-</h3>
-
-
-<div class="board-grid">
-
-<a
-class="board"
-target="_blank"
-rel="noopener"
-href="https://result.fbise.edu.pk/"
->
-FBISE Islamabad
-</a>
-
-<a
-class="board"
-target="_blank"
-rel="noopener"
-href="https://www.biseresult.pk/"
->
-KPK / Result Portal
-</a>
-
-<a
-class="board"
-target="_blank"
-rel="noopener"
-href="https://www.bsek.edu.pk/"
->
-BSE Karachi
-</a>
-
-<a
-class="board"
-target="_blank"
-rel="noopener"
-href="https://www.biseh.edu.pk/"
->
-BISE Hyderabad
-</a>
-
-<a
-class="board"
-target="_blank"
-rel="noopener"
-href="https://www.bisesuksindh.edu.pk/"
->
-BISE Sukkur
-</a>
-
-<a
-class="board"
-target="_blank"
-rel="noopener"
-href="https://bbise.edu.pk/"
->
-BBISE Quetta
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- CALCULATOR -->
-
-<section id="calculator" class="section">
-
-<div class="section-head">
-
-<div class="kicker">
-Calculator
-</div>
-
-<h2>
-🧮 Hassnain Calculator
-</h2>
-
-<p>
-Length conversion, land area and percentage — simple and fast.
-</p>
-
-</div>
-
-
-<div class="grid">
-
-
-<div class="card">
-
-<div class="icon">
-📏
-</div>
-
-<h3>
-Length Converter
-</h3>
-
-
-<div class="row">
-
-<select
-id="unitFrom"
-class="select"
->
-
-<option value="m">
-Meter
-</option>
-
-<option value="km">
-Kilometer
-</option>
-
-<option value="ft">
-Feet
-</option>
-
-</select>
-
-
-<select
-id="unitTo"
-class="select"
->
-
-<option value="km">
-Kilometer
-</option>
-
-<option value="m">
-Meter
-</option>
-
-<option value="ft">
-Feet
-</option>
-
-</select>
-
-</div>
-
-
-<input
-id="unitValue"
-class="input"
-type="number"
-step="any"
-placeholder="Enter value"
->
-
-
-<button
-class="btn"
-onclick="convertUnit()"
->
-Convert
-</button>
-
-
-<div
-id="unitResult"
-class="result status"
->
-Your answer will appear here.
-</div>
-
-</div>
-
-
-
-<div class="card">
-
-<div class="icon">
-🌾
-</div>
-
-<h3>
-Land Area
-</h3>
-
-<p>
-Enter length and width. You can choose meters, feet or kilometers.
-</p>
-
-
-<div class="row">
-
-<input
-id="landLength"
-class="input"
-type="number"
-step="any"
-placeholder="Length"
->
-
-<input
-id="landWidth"
-class="input"
-type="number"
-step="any"
-placeholder="Width"
->
-
-</div>
-
-
-<div class="row">
-
-<select
-id="landUnit"
-class="select"
->
-
-<option value="m">
-Meters
-</option>
-
-<option value="ft">
-Feet
-</option>
-
-<option value="km">
-Kilometers
-</option>
-
-</select>
-
-
-<select
-id="areaUnit"
-class="select"
->
-
-<option value="m2">
-Square meters
-</option>
-
-<option value="ft2">
-Square feet
-</option>
-
-<option value="km2">
-Square kilometers
-</option>
-
-</select>
-
-</div>
-
-
-<button
-class="btn"
-onclick="calculateArea()"
->
-Calculate Area
-</button>
-
-
-<div
-id="areaResult"
-class="result status"
->
-Area answer will appear here.
-</div>
-
-</div>
-
-
-
-<div class="card">
-
-<div class="icon">
-📊
-</div>
-
-<h3>
-Percentage
-</h3>
-
-
-<div class="row">
-
-<input
-id="marksGot"
-class="input"
-type="number"
-step="any"
-placeholder="Obtained marks"
->
-
-<input
-id="marksTotal"
-class="input"
-type="number"
-step="any"
-placeholder="Total marks"
->
-
-</div>
-
-
-<button
-class="btn"
-onclick="percentage()"
->
-Calculate
-</button>
-
-
-<div
-id="percentResult"
-class="result status"
->
-Enter marks.
-</div>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<!-- CHAT -->
-
-<section id="chat" class="section">
-
-<div class="section-head">
-
-<div class="kicker">
-Hassnain AI
-</div>
-
-<h2>
-🤖 Hassnain AI Chat
-</h2>
-
-<p>
-Ask questions in Urdu, Punjabi, English or another language.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="notice">
-
-<strong>
-Daily limit: 20 questions per device.
-</strong>
-
-<br>
-
-Hassnain AI uses Puter.js so no API key is placed inside this website.
-
-</div>
-
-
-<div
-id="chatBox"
-class="chatbox"
->
-
-<div class="msg ai">
-Assalam-o-Alaikum! میں Hassnain AI ہوں۔ اپنا سوال لکھیں۔
-</div>
-
-</div>
-
-
-<div class="chat-form">
-
-<textarea
-id="chatInput"
-class="textarea"
-placeholder="اپنا سوال لکھیں..."
-></textarea>
-
-
-<div class="actions">
-
-<button
-id="sendBtn"
-class="btn"
-onclick="sendChat()"
->
-Send Question →
-</button>
-
-<button
-class="btn alt"
-onclick="clearChat()"
->
-Clear Chat
-</button>
-
-</div>
-
-
-<div
-id="chatCounter"
-class="counter"
->
-20 questions remaining today.
-</div>
-
-
-<div
-id="chatStatus"
-class="status"
->
-Ready.
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<div class="adbox">
-ADVERTISEMENT
-</div>
-
-</div>
-
-</main>
-
-
-
-<footer>
-
-<strong>
-Hassnain <span class="gold">Hub</span>
-</strong>
-
-<p>
-AI • Education • Tools • Results
-</p>
-
-<p class="small">
-© 2026 Hassnain Hub
-</p>
-
-</footer>
-
-
-
 <script>
 
-/* DAILY LIMITS */
+/* =========================
+   HASSNAIN HUB - FINAL JS
+   ========================= */
+
+
+/* ---------- DAILY IMAGE LIMIT ---------- */
+
+const IMAGE_LIMIT = 5;
 
 function todayKey(){
-return new Date().toISOString().slice(0,10);
+    return new Date().toISOString().slice(0,10);
 }
 
+function getImageCount(){
 
-function getCount(key){
+    try{
 
-try{
+        const data =
+            JSON.parse(
+                localStorage.getItem("hh_image_count") || "{}"
+            );
 
-const raw=localStorage.getItem(key);
+        if(data.date !== todayKey()){
+            return 0;
+        }
 
-if(!raw)return 0;
+        return Number(data.count || 0);
 
-const obj=JSON.parse(raw);
+    }catch(e){
 
-return obj.date===todayKey()
-?Number(obj.count||0)
-:0;
+        return 0;
 
-}catch(e){
-
-return 0;
-
+    }
 }
 
-}
+function setImageCount(count){
 
-
-function setCount(key,count){
-
-localStorage.setItem(
-key,
-JSON.stringify({
-date:todayKey(),
-count:count
-})
-);
+    localStorage.setItem(
+        "hh_image_count",
+        JSON.stringify({
+            date: todayKey(),
+            count: count
+        })
+    );
 
 }
-
-
-const IMAGE_LIMIT=5;
-const CHAT_LIMIT=20;
-
-
-
-/* IMAGE TOOL */
-
-let selectedFile=null;
-let generatedDataUrl="";
-
-
-const imageFile=document.getElementById("imageFile");
-
-
-imageFile.addEventListener("change",()=>{
-
-selectedFile=
-imageFile.files && imageFile.files[0]
-?imageFile.files[0]
-:null;
-
-
-const text=document.getElementById("fileText");
-
-const prev=document.getElementById("sourcePreview");
-
-const img=document.getElementById("sourceImg");
-
-
-if(!selectedFile){
-
-text.textContent="📷 Choose your photo";
-
-prev.classList.add("hidden");
-
-return;
-
-}
-
-
-text.textContent="📷 "+selectedFile.name;
-
-img.src=URL.createObjectURL(selectedFile);
-
-prev.classList.remove("hidden");
-
-});
-
 
 function updateImageCounter(){
 
-const left=Math.max(
-0,
-IMAGE_LIMIT-getCount("hh_image_count")
-);
+    const left =
+        Math.max(
+            0,
+            IMAGE_LIMIT - getImageCount()
+        );
 
+    const el =
+        document.getElementById("imageCounter");
 
-document.getElementById("imageCounter").textContent=
-left+
-" image"+
-(left===1?"":"s")+
-" remaining today.";
+    if(el){
+
+        el.textContent =
+            left +
+            " image" +
+            (left === 1 ? "" : "s") +
+            " remaining today.";
+
+    }
 
 }
-
 
 updateImageCounter();
 
 
+/* ---------- IMAGE VARIABLES ---------- */
+
+let selectedFile = null;
+let generatedDataUrl = "";
+
+
+/* ---------- PHOTO SELECT ---------- */
+
+const imageFile =
+    document.getElementById("imageFile");
+
+
+if(imageFile){
+
+    imageFile.addEventListener(
+        "change",
+        function(){
+
+            selectedFile =
+                this.files && this.files[0]
+                ? this.files[0]
+                : null;
+
+            const fileText =
+                document.getElementById("fileText");
+
+            const preview =
+                document.getElementById("sourcePreview");
+
+            const sourceImg =
+                document.getElementById("sourceImg");
+
+
+            if(!selectedFile){
+
+                fileText.textContent =
+                    "📷 Choose your photo";
+
+                preview.classList.add("hidden");
+
+                return;
+
+            }
+
+
+            if(!selectedFile.type.startsWith("image/")){
+
+                selectedFile = null;
+
+                fileText.textContent =
+                    "📷 Choose your photo";
+
+                preview.classList.add("hidden");
+
+                alert("Please select an image file.");
+
+                return;
+
+            }
+
+
+            fileText.textContent =
+                "📷 " + selectedFile.name;
+
+
+            sourceImg.src =
+                URL.createObjectURL(selectedFile);
+
+
+            preview.classList.remove("hidden");
+
+        }
+    );
+
+}
+
+
+/* ---------- FILE TO DATA URL ---------- */
+
+function fileToDataURL(file){
+
+    return new Promise(
+        (resolve,reject)=>{
+
+            const reader =
+                new FileReader();
+
+            reader.onload =
+                () => resolve(reader.result);
+
+            reader.onerror =
+                () => reject(
+                    new Error("Could not read image.")
+                );
+
+            reader.readAsDataURL(file);
+
+        }
+    );
+
+}
+
+
+/* ---------- AI IMAGE GENERATOR ---------- */
 
 async function generateImage(){
 
-const status=document.getElementById("imageStatus");
+    const status =
+        document.getElementById("imageStatus");
 
-const btn=document.getElementById("generateBtn");
+    const button =
+        document.getElementById("generateBtn");
 
-const prompt=
-document.getElementById("imagePrompt")
-.value
-.trim();
+    const prompt =
+        document
+        .getElementById("imagePrompt")
+        .value
+        .trim();
 
 
-const used=getCount("hh_image_count");
+    const used =
+        getImageCount();
 
 
-if(used>=IMAGE_LIMIT){
+    /* Limit */
 
-status.className="status err";
+    if(used >= IMAGE_LIMIT){
 
-status.textContent=
-"Daily limit reached. Please try again tomorrow.";
+        status.className =
+            "status err";
 
-return;
+        status.textContent =
+            "Daily limit reached. Please try again tomorrow.";
+
+        return;
+
+    }
+
+
+    /* Photo required */
+
+    if(!selectedFile){
+
+        status.className =
+            "status err";
+
+        status.textContent =
+            "📸 Your own photo is required before generating.";
+
+        return;
+
+    }
+
+
+    /* Prompt required */
+
+    if(!prompt){
+
+        status.className =
+            "status err";
+
+        status.textContent =
+            "Please describe what you want in the image.";
+
+        return;
+
+    }
+
+
+    button.disabled = true;
+
+    button.textContent =
+        "Generating...";
+
+
+    status.className =
+        "status";
+
+    status.textContent =
+        "✨ AI is editing your photo. Please wait...";
+
+
+    try{
+
+        /*
+         Convert the user's photo into
+         a data URL.
+
+         Puter officially supports data-URI
+         input images for image-to-image.
+        */
+
+        const photoData =
+            await fileToDataURL(selectedFile);
+
+
+        /*
+         Generate/edit image directly
+         through Puter txt2img.
+
+         IMPORTANT:
+         The generated image is returned
+         as an HTMLImageElement and is shown
+         directly on this same page.
+        */
+
+        const image =
+            await puter.ai.txt2img(
+
+            prompt,
+
+            {
+
+                model:
+                    "gemini-3.1-flash-image-preview",
+
+                input_image:
+                    photoData,
+
+                input_image_mime_type:
+                    selectedFile.type || "image/jpeg"
+
+            }
+
+            );
+
+
+        if(!image){
+
+            throw new Error(
+                "No image returned."
+            );
+
+        }
+
+
+        /*
+         Keep generated image on
+         the same website.
+        */
+
+        generatedDataUrl =
+            image.src;
+
+
+        const generatedImg =
+            document.getElementById(
+                "generatedImg"
+            );
+
+
+        generatedImg.src =
+            generatedDataUrl;
+
+
+        document
+            .getElementById("resultPreview")
+            .classList.remove("hidden");
+
+
+        /* Count only successful generation */
+
+        setImageCount(
+            used + 1
+        );
+
+
+        updateImageCounter();
+
+
+        status.className =
+            "status ok";
+
+        status.textContent =
+            "✅ Image generated successfully on Hassnain Hub.";
+
+
+    }catch(error){
+
+        console.error(
+            "IMAGE ERROR:",
+            error
+        );
+
+
+        status.className =
+            "status err";
+
+
+        status.textContent =
+            "❌ Image could not be generated. Please try again. If Puter asks for sign-in, complete it and return to this page.";
+
+    }
+
+
+    button.disabled = false;
+
+    button.textContent =
+        "✨ Generate Image";
 
 }
 
 
-if(!selectedFile){
-
-status.className="status err";
-
-status.textContent=
-"📸 Your photo is required before generation.";
-
-return;
-
-}
-
-
-if(!prompt){
-
-status.className="status err";
-
-status.textContent=
-"Please describe what you want to create.";
-
-return;
-
-}
-
-
-btn.disabled=true;
-
-btn.textContent="Generating...";
-
-status.className="status";
-
-status.textContent=
-"AI is working on your photo. Please wait...";
-
-
-try{
-
-const result=
-await puter.ai.chat(
-
-[
-
-{
-
-role:"user",
-
-content:[
-
-{
-
-type:"text",
-
-text:
-"Edit the user's uploaded photo according to this request. Preserve the person's identity and important facial features. Create a natural, high-quality image. User request: "
-+
-prompt
-
-},
-
-{
-
-type:"file",
-
-file:selectedFile
-
-}
-
-]
-
-}
-
-],
-
-false,
-
-{
-
-model:"gemini-3.1-flash-image-preview"
-
-}
-
-);
-
-
-const images=
-result?.message?.images||[];
-
-
-if(!images.length){
-
-throw new Error(
-"No image was returned by the AI service."
-);
-
-}
-
-
-generatedDataUrl=
-images[0]?.image_url?.url||"";
-
-
-if(!generatedDataUrl){
-
-throw new Error(
-"Generated image URL was empty."
-);
-
-}
-
-
-document.getElementById("generatedImg").src=
-generatedDataUrl;
-
-
-document.getElementById("resultPreview")
-.classList.remove("hidden");
-
-
-setCount(
-"hh_image_count",
-used+1
-);
-
-
-updateImageCounter();
-
-
-status.className="status ok";
-
-status.textContent=
-"Image generated successfully.";
-
-}catch(err){
-
-console.error(err);
-
-status.className="status err";
-
-status.textContent=
-"AI image service could not complete the request. If Puter asks you to sign in, complete the on-screen sign-in and try again.";
-
-}finally{
-
-btn.disabled=false;
-
-btn.textContent=
-"✨ Generate Image";
-
-}
-
-}
-
-
+/* ---------- SAVE IMAGE ---------- */
 
 async function saveImage(){
 
-if(!generatedDataUrl)return;
+    if(!generatedDataUrl){
+
+        alert(
+            "Please generate an image first."
+        );
+
+        return;
+
+    }
 
 
-try{
+    try{
 
-const blob=
-await(
-await fetch(generatedDataUrl)
-).blob();
+        /*
+         Android browsers may support
+         Web Share API.
+        */
+
+        const response =
+            await fetch(
+                generatedDataUrl
+            );
 
 
-const file=
-new File(
-[blob],
-"hassnain-ai-image.png",
-{
-type:blob.type||"image/png"
+        const blob =
+            await response.blob();
+
+
+        const file =
+            new File(
+                [blob],
+                "hassnain-ai-image.png",
+                {
+                    type:
+                        blob.type || "image/png"
+                }
+            );
+
+
+        if(
+            navigator.share &&
+            navigator.canShare &&
+            navigator.canShare({
+                files:[file]
+            })
+        ){
+
+            await navigator.share({
+
+                title:
+                    "Hassnain AI Image",
+
+                files:
+                    [file]
+
+            });
+
+            return;
+
+        }
+
+
+    }catch(error){
+
+        console.log(
+            "Share unavailable:",
+            error
+        );
+
+    }
+
+
+    /*
+     Fallback download.
+    */
+
+    const link =
+        document.createElement("a");
+
+
+    link.href =
+        generatedDataUrl;
+
+
+    link.download =
+        "hassnain-ai-image.png";
+
+
+    document.body.appendChild(link);
+
+
+    link.click();
+
+
+    link.remove();
+
 }
-);
 
 
-if(
-navigator.share &&
-navigator.canShare &&
-navigator.canShare({files:[file]})
-){
-
-await navigator.share({
-
-title:"Hassnain AI Image",
-
-files:[file]
-
-});
-
-return;
-
-}
-
-}catch(e){}
-
-
-const a=document.createElement("a");
-
-a.href=generatedDataUrl;
-
-a.download="hassnain-ai-image.png";
-
-document.body.appendChild(a);
-
-a.click();
-
-a.remove();
-
-}
-
-
+/* ---------- OPEN GENERATED IMAGE ---------- */
 
 function openGenerated(){
 
-if(generatedDataUrl){
+    if(!generatedDataUrl){
 
-window.open(
-generatedDataUrl,
-"_blank",
-"noopener"
-);
+        return;
+
+    }
+
+
+    /*
+     Open the image only when
+     user presses Open Image.
+    */
+
+    window.open(
+        generatedDataUrl,
+        "_blank"
+    );
 
 }
 
-}
 
-
+/* ---------- CLEAR IMAGE TOOL ---------- */
 
 function clearImageTool(){
 
-selectedFile=null;
+    selectedFile = null;
 
-generatedDataUrl="";
+    generatedDataUrl = "";
 
-document.getElementById("imageFile").value="";
 
-document.getElementById("imagePrompt").value="";
+    const file =
+        document.getElementById(
+            "imageFile"
+        );
 
-document.getElementById("fileText")
-.textContent="📷 Choose your photo";
+    if(file){
 
-document.getElementById("sourcePreview")
-.classList.add("hidden");
+        file.value = "";
 
-document.getElementById("resultPreview")
-.classList.add("hidden");
+    }
 
-document.getElementById("imageStatus")
-.className="status";
 
-document.getElementById("imageStatus")
-.textContent=
-"Upload a photo and enter an idea.";
+    document.getElementById(
+        "imagePrompt"
+    ).value = "";
+
+
+    document.getElementById(
+        "fileText"
+    ).textContent =
+        "📷 Choose your photo";
+
+
+    document
+        .getElementById("sourcePreview")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("resultPreview")
+        .classList.add("hidden");
+
+
+    const status =
+        document.getElementById(
+            "imageStatus"
+        );
+
+
+    status.className =
+        "status";
+
+
+    status.textContent =
+        "Upload a photo and enter an idea.";
 
 }
 
 
+/* =========================
+   CALCULATOR
+   ========================= */
 
-/* CALCULATOR */
+
+/* ---------- UNIT CONVERTER ---------- */
 
 function convertUnit(){
 
-const v=
-parseFloat(
-document.getElementById("unitValue").value
-);
-
-const from=
-document.getElementById("unitFrom").value;
-
-const to=
-document.getElementById("unitTo").value;
-
-const out=
-document.getElementById("unitResult");
+    const value =
+        parseFloat(
+            document.getElementById(
+                "unitValue"
+            ).value
+        );
 
 
-if(!Number.isFinite(v)){
+    const from =
+        document.getElementById(
+            "unitFrom"
+        ).value;
 
-out.className="result status err";
 
-out.textContent=
-"Enter a valid number.";
+    const to =
+        document.getElementById(
+            "unitTo"
+        ).value;
 
-return;
+
+    const resultBox =
+        document.getElementById(
+            "unitResult"
+        );
+
+
+    if(!Number.isFinite(value)){
+
+        resultBox.className =
+            "result status err";
+
+        resultBox.textContent =
+            "Enter a valid number.";
+
+        return;
+
+    }
+
+
+    const meters = {
+
+        m:
+            value,
+
+        km:
+            value * 1000,
+
+        ft:
+            value * 0.3048
+
+    }[from];
+
+
+    const result = {
+
+        m:
+            meters,
+
+        km:
+            meters / 1000,
+
+        ft:
+            meters / 0.3048
+
+    }[to];
+
+
+    const names = {
+
+        m:
+            "meters",
+
+        km:
+            "kilometers",
+
+        ft:
+            "feet"
+
+    };
+
+
+    resultBox.className =
+        "result status ok";
+
+
+    resultBox.textContent =
+        value +
+        " " +
+        names[from] +
+        " = " +
+        Number(
+            result.toFixed(8)
+        ) +
+        " " +
+        names[to];
 
 }
 
 
-const meters={
-m:v,
-km:v*1000,
-ft:v*0.3048
-}[from];
-
-
-const result={
-m:meters,
-km:meters/1000,
-ft:meters/0.3048
-}[to];
-
-
-const labels={
-m:"meters",
-km:"kilometers",
-ft:"feet"
-};
-
-
-out.className="result status ok";
-
-out.textContent=
-v+
-" "+
-labels[from]+
-" = "+
-Number(result.toFixed(8))+
-" "+
-labels[to];
-
-}
-
-
+/* ---------- LAND AREA ---------- */
 
 function calculateArea(){
 
-const l=
-parseFloat(
-document.getElementById("landLength").value
-);
-
-const w=
-parseFloat(
-document.getElementById("landWidth").value
-);
-
-const unit=
-document.getElementById("landUnit").value;
-
-const target=
-document.getElementById("areaUnit").value;
-
-const out=
-document.getElementById("areaResult");
+    const length =
+        parseFloat(
+            document.getElementById(
+                "landLength"
+            ).value
+        );
 
 
-if(
-!Number.isFinite(l)||
-!Number.isFinite(w)||
-l<0||
-w<0
-){
+    const width =
+        parseFloat(
+            document.getElementById(
+                "landWidth"
+            ).value
+        );
 
-out.className="result status err";
 
-out.textContent=
-"Enter valid length and width.";
+    const unit =
+        document.getElementById(
+            "landUnit"
+        ).value;
 
-return;
+
+    const target =
+        document.getElementById(
+            "areaUnit"
+        ).value;
+
+
+    const resultBox =
+        document.getElementById(
+            "areaResult"
+        );
+
+
+    if(
+        !Number.isFinite(length) ||
+        !Number.isFinite(width) ||
+        length < 0 ||
+        width < 0
+    ){
+
+        resultBox.className =
+            "result status err";
+
+        resultBox.textContent =
+            "Enter valid length and width.";
+
+        return;
+
+    }
+
+
+    const factor = {
+
+        m:
+            1,
+
+        ft:
+            0.3048,
+
+        km:
+            1000
+
+    }[unit];
+
+
+    const squareMeters =
+        length *
+        factor *
+        width *
+        factor;
+
+
+    const result = {
+
+        m2:
+            squareMeters,
+
+        ft2:
+            squareMeters /
+            0.09290304,
+
+        km2:
+            squareMeters /
+            1000000
+
+    }[target];
+
+
+    const names = {
+
+        m2:
+            "m²",
+
+        ft2:
+            "ft²",
+
+        km2:
+            "km²"
+
+    };
+
+
+    resultBox.className =
+        "result status ok";
+
+
+    resultBox.textContent =
+        "Area = " +
+        Number(
+            result.toFixed(8)
+        ) +
+        " " +
+        names[target];
 
 }
 
 
-const factor={
-m:1,
-ft:0.3048,
-km:1000
-}[unit];
-
-
-const m2=
-l*factor*w*factor;
-
-
-const result={
-m2:m2,
-ft2:m2/0.09290304,
-km2:m2/1000000
-}[target];
-
-
-const labels={
-m2:"m²",
-ft2:"ft²",
-km2:"km²"
-};
-
-
-out.className="result status ok";
-
-out.textContent=
-"Area = "+
-Number(result.toFixed(8))+
-" "+
-labels[target];
-
-}
-
-
+/* ---------- PERCENTAGE ---------- */
 
 function percentage(){
 
-const a=
-parseFloat(
-document.getElementById("marksGot").value
-);
-
-const b=
-parseFloat(
-document.getElementById("marksTotal").value
-);
-
-const out=
-document.getElementById("percentResult");
+    const obtained =
+        parseFloat(
+            document.getElementById(
+                "marksGot"
+            ).value
+        );
 
 
-if(
-!Number.isFinite(a)||
-!Number.isFinite(b)||
-b<=0||
-a<0
+    const total =
+        parseFloat(
+            document.getElementById(
+                "marksTotal"
+            ).value
+        );
+
+
+    const resultBox =
+        document.getElementById(
+            "percentResult"
+        );
+
+
+    if(
+        !Number.isFinite(obtained) ||
+        !Number.isFinite(total) ||
+        total <= 0 ||
+        obtained < 0
+    ){
+
+        resultBox.className =
+            "result status err";
+
+        resultBox.textContent =
+            "Enter valid marks.";
+
+        return;
+
+    }
+
+
+    resultBox.className =
+        "result status ok";
+
+
+    resultBox.textContent =
+        "Percentage: " +
+        (
+            (obtained / total) *
+            100
+        ).toFixed(2) +
+        "%";
+
+}
+
+
+/* =========================
+   HASSNAIN AI CHAT
+   NO WEBSITE-SIDE DAILY LIMIT
+   ========================= */
+
+
+/* ---------- ADD CHAT MESSAGE ---------- */
+
+function addMessage(
+    type,
+    text
 ){
 
-out.className="result status err";
-
-out.textContent=
-"Enter valid marks.";
-
-return;
-
-}
+    const box =
+        document.getElementById(
+            "chatBox"
+        );
 
 
-out.className="result status ok";
-
-out.textContent=
-"Percentage: "+
-((a/b)*100).toFixed(2)+
-"%";
-
-}
+    const message =
+        document.createElement(
+            "div"
+        );
 
 
-
-/* HASSNAIN AI CHAT */
-
-function updateChatCounter(){
-
-const left=Math.max(
-0,
-CHAT_LIMIT-getCount("hh_chat_count")
-);
+    message.className =
+        "msg " + type;
 
 
-document.getElementById("chatCounter")
-.textContent=
-left+
-" question"+
-(left===1?"":"s")+
-" remaining today.";
+    message.textContent =
+        text;
+
+
+    box.appendChild(
+        message
+    );
+
+
+    box.scrollTop =
+        box.scrollHeight;
+
+
+    return message;
 
 }
 
 
-updateChatCounter();
-
-
-
-function addMessage(type,text){
-
-const box=
-document.getElementById("chatBox");
-
-
-const div=
-document.createElement("div");
-
-
-div.className=
-"msg "+
-type;
-
-
-div.textContent=text;
-
-
-box.appendChild(div);
-
-
-box.scrollTop=
-box.scrollHeight;
-
-
-return div;
-
-}
-
-
+/* ---------- SEND CHAT ---------- */
 
 async function sendChat(){
 
-const input=
-document.getElementById("chatInput");
-
-const btn=
-document.getElementById("sendBtn");
-
-const status=
-document.getElementById("chatStatus");
-
-const question=
-input.value.trim();
+    const input =
+        document.getElementById(
+            "chatInput"
+        );
 
 
-const used=
-getCount("hh_chat_count");
+    const button =
+        document.getElementById(
+            "sendBtn"
+        );
 
 
-if(used>=CHAT_LIMIT){
+    const status =
+        document.getElementById(
+            "chatStatus"
+        );
 
-status.className=
-"status err";
 
-status.textContent=
-"Daily limit reached. Please try again tomorrow.";
+    const question =
+        input.value.trim();
 
-return;
+
+    if(!question){
+
+        status.className =
+            "status err";
+
+        status.textContent =
+            "Please write a question.";
+
+        return;
+
+    }
+
+
+    addMessage(
+        "user",
+        question
+    );
+
+
+    input.value = "";
+
+
+    button.disabled = true;
+
+    button.textContent =
+        "Thinking...";
+
+
+    status.className =
+        "status";
+
+    status.textContent =
+        "Hassnain AI is thinking...";
+
+
+    try{
+
+
+        /*
+         NO LOCAL DAILY LIMIT.
+
+         The user can keep asking questions.
+         Actual provider/account limits,
+         if any, are controlled by Puter.
+        */
+
+
+        const response =
+            await puter.ai.chat(
+
+                question,
+
+                {
+
+                    model:
+                        "gpt-5.6-luna"
+
+                }
+
+            );
+
+
+        let answer = "";
+
+
+        if(
+            typeof response ===
+            "string"
+        ){
+
+            answer =
+                response;
+
+        }else{
+
+            answer =
+                response?.message?.content ||
+                response?.message?.text ||
+                "";
+
+        }
+
+
+        if(
+            Array.isArray(answer)
+        ){
+
+            answer =
+                answer
+                .map(
+                    item =>
+                        item.text || ""
+                )
+                .join("");
+
+        }
+
+
+        if(!answer){
+
+            answer =
+                "Sorry, no answer was returned. Please try again.";
+
+        }
+
+
+        addMessage(
+            "ai",
+            String(answer)
+        );
+
+
+        status.className =
+            "status ok";
+
+        status.textContent =
+            "✅ Answer received.";
+
+
+    }catch(error){
+
+        console.error(
+            "CHAT ERROR:",
+            error
+        );
+
+
+        addMessage(
+
+            "ai",
+
+            "معذرت، اس وقت AI سروس جواب نہیں دے رہی۔ اگر Puter sign-in مانگے تو sign-in مکمل کریں اور دوبارہ سوال بھیجیں۔"
+
+        );
+
+
+        status.className =
+            "status err";
+
+
+        status.textContent =
+            "AI service could not respond. Please try again.";
+
+    }
+
+
+    button.disabled = false;
+
+    button.textContent =
+        "Send Question →";
 
 }
 
 
-if(!question){
-
-status.className=
-"status err";
-
-status.textContent=
-"Please write a question.";
-
-return;
-
-}
-
-
-addMessage(
-"user",
-question
-);
-
-
-input.value="";
-
-
-btn.disabled=true;
-
-btn.textContent=
-"Thinking...";
-
-
-status.className="status";
-
-status.textContent=
-"Hassnain AI is preparing your answer...";
-
-
-try{
-
-const result=
-await puter.ai.chat(
-
-"You are Hassnain AI. Answer the user's question accurately and helpfully. Reply in the same language the user uses. If the user writes Urdu, answer in Urdu; if Punjabi, answer in Punjabi; if English, answer in English. Be clear and practical. User question: "
-+
-question,
-
-{
-model:"gpt-5.6-luna"
-}
-
-);
-
-
-let answer="";
-
-
-if(typeof result==="string"){
-
-answer=result;
-
-}else{
-
-answer=
-result?.message?.content||
-result?.message?.text||
-"No answer was returned.";
-
-}
-
-
-if(Array.isArray(answer)){
-
-answer=
-answer
-.map(x=>x.text||"")
-.join("");
-
-}
-
-
-addMessage(
-"ai",
-String(answer)
-);
-
-
-setCount(
-"hh_chat_count",
-used+1
-);
-
-
-updateChatCounter();
-
-
-status.className=
-"status ok";
-
-status.textContent=
-"Answer received.";
-
-
-}catch(err){
-
-console.error(err);
-
-
-addMessage(
-"ai",
-"Sorry, AI service is unavailable right now. If Puter asks you to sign in, complete the on-screen sign-in and send the question again."
-);
-
-
-status.className=
-"status err";
-
-status.textContent=
-"AI service did not respond. Please try again.";
-
-}finally{
-
-btn.disabled=false;
-
-btn.textContent=
-"Send Question →";
-
-}
-
-}
-
-
+/* ---------- CLEAR CHAT ---------- */
 
 function clearChat(){
 
-document.getElementById("chatBox")
-.innerHTML=
-'<div class="msg ai">Assalam-o-Alaikum! میں Hassnain AI ہوں۔ اپنا سوال لکھیں۔</div>';
+    document.getElementById(
+        "chatBox"
+    ).innerHTML =
+
+        '<div class="msg ai">' +
+        'Assalam-o-Alaikum! میں Hassnain AI ہوں۔ اپنا سوال لکھیں۔' +
+        '</div>';
 
 
-document.getElementById("chatStatus")
-.className="status";
+    document.getElementById(
+        "chatStatus"
+    ).className =
+        "status";
 
 
-document.getElementById("chatStatus")
-.textContent="Ready.";
+    document.getElementById(
+        "chatStatus"
+    ).textContent =
+        "Ready.";
+
+}
+
+
+/* ---------- ENTER TO SEND ---------- */
+
+const chatInput =
+    document.getElementById(
+        "chatInput"
+    );
+
+
+if(chatInput){
+
+    chatInput.addEventListener(
+        "keydown",
+        function(event){
+
+            if(
+                event.key === "Enter" &&
+                !event.shiftKey
+            ){
+
+                event.preventDefault();
+
+                sendChat();
+
+            }
+
+        }
+    );
 
 }
 
 
+/* ---------- START ---------- */
 
-document
-.getElementById("chatInput")
-.addEventListener(
-"keydown",
-e=>{
-
-if(
-e.key==="Enter" &&
-!e.shiftKey
-){
-
-e.preventDefault();
-
-sendChat();
-
-}
-
-}
+console.log(
+    "Hassnain Hub loaded successfully."
 );
 
-</script>
-
-</body>
-  </html>
+             </script>
