@@ -3,312 +3,1098 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Hassnain Hub - AI image generator, AI chat, calculators, 9th class results and useful tools.">
+<meta name="description" content="Hassnain Hub - AI Image Creator, 9th Class Results, Unit Calculator and Hassnain AI Chat.">
 <title>Hassnain Hub</title>
 
 <style>
+:root{
+--bg:#070707;
+--panel:#111;
+--panel2:#151515;
+--line:#292929;
+--gold:#e7ad4b;
+--muted:#a7a7a7;
+--white:#fff;
+}
+
 *{box-sizing:border-box}
+
 html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#080808;color:#fff;line-height:1.7}
-a{text-decoration:none;color:inherit}
-.nav{position:sticky;top:0;z-index:1000;background:#080808;border-bottom:1px solid #222;padding:18px 5%;display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:28px;font-weight:800}.logo span,.gold{color:#e7ad4b}
-.navlinks{display:flex;gap:18px;font-size:14px;color:#aaa;flex-wrap:wrap}
-.navlinks a:hover{color:#e7ad4b}
-.container{width:90%;max-width:1100px;margin:auto}
-.hero{text-align:center;padding:70px 10px 50px}
-.kicker{letter-spacing:6px;color:#e7ad4b;font-weight:bold;font-size:13px;text-transform:uppercase}
-.hero h1{font-size:56px;line-height:1.15;margin:15px 0}
-.hero p{color:#aaa;font-size:19px;max-width:720px;margin:auto}
-.section{padding:50px 0}
-.section-head{text-align:center;margin-bottom:30px}
-.section-head h2{font-size:40px;margin:5px 0}
-.section-head p{color:#999}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-.card{background:#141414;border:1px solid #292929;border-radius:22px;padding:28px;transition:.2s;height:100%}
-.card:hover{border-color:#e7ad4b;transform:translateY(-2px)}
-.icon{font-size:40px}
-.card h3{font-size:24px;margin:10px 0}
-.card p{color:#aaa}
-.btn{display:inline-block;border:1px solid #e7ad4b;background:#e7ad4b;color:#111;padding:11px 18px;border-radius:10px;font-weight:bold;cursor:pointer;font-size:15px}
-.btn.alt{background:transparent;color:#e7ad4b}
-.btn:hover{opacity:.86}
-input,select,textarea{width:100%;padding:14px;margin:7px 0;border-radius:10px;border:1px solid #333;background:#0d0d0d;color:#fff;font-size:16px;font-family:inherit}
-textarea{min-height:120px;resize:vertical}
-.result{padding:16px;margin-top:15px;border-radius:12px;background:#0b0b0b;border:1px solid #292929}
-.notice{background:#17120a;border:1px solid #6c5228;padding:18px;border-radius:15px;margin-bottom:20px}
-.adbox{min-height:90px;border:1px dashed #444;border-radius:15px;display:flex;align-items:center;justify-content:center;color:#666;margin:30px 0}
-.live{border-color:#e7ad4b}
-.live-dot{display:inline-block;width:9px;height:9px;background:#e74b4b;border-radius:50%;margin-right:7px}
-.article{min-height:210px}
-.badge{display:inline-block;padding:5px 9px;border:1px solid #444;border-radius:20px;color:#aaa;font-size:12px;margin:3px}
-.image-wrap{margin-top:18px;text-align:center}
-.image-wrap img{width:100%;max-height:650px;object-fit:contain;border-radius:15px;border:1px solid #333;background:#000}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-.chatbox{max-height:480px;overflow:auto;padding:10px;background:#0b0b0b;border:1px solid #292929;border-radius:14px}
-.msg{padding:12px 14px;border-radius:13px;margin:8px 0;white-space:pre-wrap}
-.user{background:#201a0d;border:1px solid #5b431e}
-.ai{background:#141414;border:1px solid #292929}
-.small{font-size:13px;color:#777}
-footer{border-top:1px solid #222;padding:45px 5%;text-align:center;color:#777}
-@media(max-width:700px){
-.navlinks{display:none}
-.hero h1{font-size:40px}
-.section-head h2{font-size:31px}
-.card{padding:23px}
+
+body{
+margin:0;
+background:var(--bg);
+color:var(--white);
+font-family:Arial,Helvetica,sans-serif;
+line-height:1.6;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+button,input,textarea,select{
+font:inherit;
+}
+
+button{
+cursor:pointer;
+}
+
+.nav{
+position:sticky;
+top:0;
+z-index:50;
+background:rgba(7,7,7,.94);
+backdrop-filter:blur(12px);
+border-bottom:1px solid var(--line);
+}
+
+.nav-inner{
+width:min(1180px,92%);
+margin:auto;
+min-height:72px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+}
+
+.logo{
+font-size:25px;
+font-weight:800;
+}
+
+.logo span{
+color:var(--gold);
+}
+
+.navlinks{
+display:flex;
+gap:20px;
+color:#aaa;
+font-size:14px;
+}
+
+.navlinks a:hover{
+color:var(--gold);
+}
+
+.container{
+width:min(1180px,92%);
+margin:auto;
+}
+
+.hero{
+text-align:center;
+padding:78px 10px 45px;
+}
+
+.kicker{
+color:var(--gold);
+font-size:12px;
+font-weight:800;
+letter-spacing:6px;
+text-transform:uppercase;
+}
+
+.hero h1{
+font-size:clamp(42px,7vw,72px);
+line-height:1.08;
+margin:12px 0;
+}
+
+.gold{
+color:var(--gold);
+}
+
+.hero p{
+max-width:760px;
+margin:0 auto;
+color:var(--muted);
+font-size:18px;
+}
+
+.section{
+padding:55px 0;
+}
+
+.section-head{
+text-align:center;
+margin-bottom:30px;
+}
+
+.section-head h2{
+font-size:clamp(32px,5vw,48px);
+margin:7px 0;
+}
+
+.section-head p{
+color:var(--muted);
+margin:0 auto;
+max-width:720px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:22px;
+}
+
+.card{
+background:linear-gradient(180deg,var(--panel2),var(--panel));
+border:1px solid var(--line);
+border-radius:22px;
+padding:28px;
+box-shadow:0 15px 45px rgba(0,0,0,.22);
+}
+
+.card:hover{
+border-color:#6c5228;
+}
+
+.icon{
+font-size:38px;
+}
+
+.card h3{
+font-size:25px;
+margin:10px 0;
+}
+
+.card p{
+color:var(--muted);
+}
+
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+min-height:46px;
+padding:11px 18px;
+border-radius:12px;
+border:1px solid var(--gold);
+background:var(--gold);
+color:#111;
+font-weight:800;
+transition:.15s;
+}
+
+.btn:hover{
+transform:translateY(-1px);
+opacity:.92;
+}
+
+.btn.alt{
+background:transparent;
+color:var(--gold);
+}
+
+.btn:disabled{
+opacity:.45;
+cursor:not-allowed;
+transform:none;
+}
+
+.input,.textarea,.select{
+width:100%;
+background:#0b0b0b;
+color:#fff;
+border:1px solid #333;
+border-radius:13px;
+padding:14px 15px;
+outline:none;
+margin-top:10px;
+}
+
+.input:focus,.textarea:focus,.select:focus{
+border-color:var(--gold);
+}
+
+.textarea{
+min-height:130px;
+resize:vertical;
+}
+
+.row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+}
+
+.actions{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:13px;
+}
+
+.status{
+margin-top:14px;
+padding:13px 15px;
+border-radius:12px;
+background:#0b0b0b;
+border:1px solid var(--line);
+color:#ddd;
+}
+
+.status.ok{
+border-color:#4c6a3b;
+}
+
+.status.err{
+border-color:#704040;
+}
+
+.notice{
+background:#17120a;
+border:1px solid #6c5228;
+border-radius:16px;
+padding:17px;
+margin-bottom:18px;
+}
+
+.adbox{
+min-height:90px;
+border:1px dashed #3b3b3b;
+border-radius:16px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#555;
+margin:25px 0;
+}
+
+.board-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+}
+
+.board{
+padding:15px;
+border:1px solid var(--line);
+border-radius:14px;
+background:#0c0c0c;
+color:#ddd;
+font-weight:700;
+text-align:center;
+}
+
+.board:hover{
+border-color:var(--gold);
+color:var(--gold);
+}
+
+.preview{
+margin-top:18px;
+border:1px solid var(--line);
+border-radius:18px;
+padding:14px;
+background:#080808;
+text-align:center;
+}
+
+.preview img{
+max-width:100%;
+max-height:600px;
+border-radius:12px;
+display:block;
+margin:auto;
+}
+
+.file-label{
+display:flex;
+align-items:center;
+justify-content:center;
+min-height:52px;
+border:1px dashed #555;
+border-radius:13px;
+background:#0b0b0b;
+color:#ddd;
+padding:10px;
+text-align:center;
+cursor:pointer;
+}
+
+.file-label:hover{
+border-color:var(--gold);
+}
+
+.file-label input{
+display:none;
+}
+
+.chatbox{
+min-height:260px;
+max-height:520px;
+overflow:auto;
+padding:15px;
+background:#090909;
+border:1px solid var(--line);
+border-radius:17px;
+}
+
+.msg{
+max-width:88%;
+padding:12px 14px;
+border-radius:15px;
+margin:9px 0;
+white-space:pre-wrap;
+overflow-wrap:anywhere;
+}
+
+.msg.user{
+margin-left:auto;
+background:#211a0d;
+border:1px solid #4c3b20;
+}
+
+.msg.ai{
+background:#151515;
+border:1px solid #2c2c2c;
+}
+
+.chat-form{
+margin-top:12px;
+}
+
+.counter{
+color:#999;
+font-size:13px;
+margin-top:8px;
+}
+
+.small{
+font-size:13px;
+color:#777;
+}
+
+footer{
+border-top:1px solid #222;
+padding:40px 0;
+text-align:center;
+color:#777;
+}
+
+.hidden{
+display:none!important;
+}
+
+@media(max-width:760px){
+
+.nav-inner{
+min-height:62px;
+}
+
+.navlinks{
+display:none;
+}
+
+.hero{
+padding-top:55px;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.row{
+grid-template-columns:1fr;
+}
+
+.board-grid{
+grid-template-columns:1fr 1fr;
+}
+
+.card{
+padding:21px;
+}
+
+}
+
+@media(max-width:430px){
+
+.board-grid{
+grid-template-columns:1fr;
+}
+
+.btn{
+width:100%;
+}
+
 }
 </style>
+
+<script src="https://js.puter.com/v2/"></script>
 </head>
 
 <body>
 
 <header class="nav">
-<a class="logo" href="#top">Hassnain <span>Hub</span></a>
+
+<div class="nav-inner">
+
+<a class="logo" href="#top">
+Hassnain <span>Hub</span>
+</a>
+
 <nav class="navlinks">
-<a href="#ai-image">AI Image</a>
+<a href="#image">AI Image</a>
 <a href="#result">9th Result</a>
 <a href="#calculator">Calculator</a>
-<a href="#ai-chat">Hassnain AI</a>
+<a href="#chat">Hassnain AI</a>
 </nav>
+
+</div>
+
 </header>
 
 <main id="top">
 
 <section class="hero">
-<div class="kicker">Hassnain Hub</div>
-<h1>Useful Tools.<br><span class="gold">Useful Knowledge.</span></h1>
-<p>AI image generation, Hassnain AI chat, calculators and student result resources in one place.</p>
-<br>
-<a class="btn" href="#ai-image">Start Using Tools →</a>
+
+<div class="kicker">
+Hassnain Hub
+</div>
+
+<h1>
+Four Useful Tools.<br>
+<span class="gold">One Simple Website.</span>
+</h1>
+
+<p>
+AI image editing, 9th class results, practical unit calculations and Hassnain AI Chat — designed for mobile and desktop.
+</p>
+
 </section>
 
 <div class="container">
 
-<div class="adbox">ADVERTISEMENT</div>
-
-<section id="ai-image" class="section">
-<div class="section-head">
-<div class="kicker">AI Creator</div>
-<h2>🎨 Free AI Image Generator</h2>
-<p>Write your idea in Urdu, Punjabi, English or another language.</p>
+<div class="adbox">
+ADVERTISEMENT
 </div>
+
+
+<!-- AI IMAGE -->
+
+<section id="image" class="section">
+
+<div class="section-head">
+
+<div class="kicker">
+AI Creator
+</div>
+
+<h2>
+🎨 AI Image Creator
+</h2>
+
+<p>
+Upload your own photo first, then describe what you want in Urdu, Punjabi, English or another language.
+</p>
+
+</div>
+
 
 <div class="card">
 
 <div class="notice">
-<strong>Free daily limit: 3 images</strong><br>
-The limit is stored on this device and resets on the next day.
+
+<strong>
+📸 Your own photo is required.
+</strong>
+
+<br>
+
+Select a photo before generating.
+
+Daily limit:
+
+<strong>
+5 images per device
+</strong>
+
 </div>
 
-<textarea id="imagePrompt" placeholder="مثال: ایک خوبصورت پاکستانی گاؤں کا منظر، شام کا وقت، cinematic realistic style"></textarea>
+
+<label class="file-label">
+
+<input
+id="imageFile"
+type="file"
+accept="image/*"
+>
+
+<span id="fileText">
+📷 Choose your photo
+</span>
+
+</label>
+
+
+<div id="sourcePreview" class="preview hidden">
+
+<img
+id="sourceImg"
+alt="Your selected photo"
+>
+
+</div>
+
+
+<textarea
+id="imagePrompt"
+class="textarea"
+placeholder="مثال: میری تصویر کو خوبصورت پاکستانی گاؤں کے منظر میں cinematic realistic style میں بنائیں۔"
+></textarea>
+
 
 <div class="actions">
-<button class="btn" onclick="generateImage()">✨ Generate Image</button>
-<button class="btn alt" onclick="clearImage()">Clear</button>
+
+<button
+id="generateBtn"
+class="btn"
+onclick="generateImage()"
+>
+✨ Generate Image
+</button>
+
+<button
+class="btn alt"
+onclick="clearImageTool()"
+>
+Clear
+</button>
+
 </div>
 
-<div id="imageStatus" class="result">
-Your generated image will appear here.
+
+<div
+id="imageStatus"
+class="status"
+>
+Upload a photo and enter an idea.
 </div>
 
-<div id="imageOutput" class="image-wrap"></div>
 
-<div id="imageActions" class="actions" style="display:none">
-<button class="btn" onclick="saveImage()">📱 Save to Gallery</button>
-<a id="openImage" class="btn alt" target="_blank" rel="noopener">Open Image</a>
+<div
+id="resultPreview"
+class="preview hidden"
+>
+
+<img
+id="generatedImg"
+alt="Generated image"
+>
+
+<div
+class="actions"
+style="justify-content:center"
+>
+
+<button
+id="saveBtn"
+class="btn"
+onclick="saveImage()"
+>
+📱 Save to Gallery
+</button>
+
+<button
+id="openBtn"
+class="btn alt"
+onclick="openGenerated()"
+>
+Open Image
+</button>
+
 </div>
+
+</div>
+
+
+<div
+class="counter"
+id="imageCounter"
+>
+5 images remaining today.
+</div>
+
 
 <p class="small">
-AI image generation uses an external AI service. Availability and limits can change.
+AI image editing is provided through Puter.js. The service may ask the visitor to sign in.
 </p>
 
 </div>
+
 </section>
 
+
+
+<!-- RESULT -->
 
 <section id="result" class="section">
 
 <div class="section-head">
-<div class="kicker">Education</div>
-<h2>🎓 9th Class Result 2026</h2>
-<p>Punjab boards and useful Pakistan board links.</p>
+
+<div class="kicker">
+Education
 </div>
 
-<div class="notice">
-<strong>📅 Result Date: 2 September 2026 at 10:00 AM.</strong><br>
-Always verify the final announcement on the relevant official board website.
+<h2>
+🎓 9th Class Result 2026
+</h2>
+
+<p>
+Official board links in one place. Always verify the result on the relevant board website.
+</p>
+
 </div>
+
+
+<div class="notice">
+
+<strong>
+📅 Punjab 9th Class Result
+</strong>
+
+<br>
+
+The website does not invent result marks or dates. Use the official board link below when results are released.
+
+</div>
+
 
 <div class="card">
 
-<h3>Punjab Boards</h3>
-
-<p>
-Open your board's official website and use its result system when the result is released.
-</p>
-
-<div class="grid">
-
-<a class="btn" target="_blank" rel="noopener"
-href="https://www.biselahore.com/">
-Lahore
-</a>
-
-<a class="btn" target="_blank" rel="noopener"
-href="https://www.bisegrw.edu.pk/">
-Gujranwala
-</a>
-
-<a class="btn" target="_blank" rel="noopener"
-href="https://www.biserawalpindi.edu.pk/">
-Rawalpindi
-</a>
-
-<a class="btn" target="_blank" rel="noopener"
-href="https://www.bisefsd.edu.pk/">
-Faisalabad
-</a>
-
-<a class="btn" target="_blank" rel="noopener"
-href="https://web.bisemultan.edu.pk/">
-Multan
-</a>
-
-<a class="btn" target="_blank" rel="noopener"
-href="https://www.bisesargodha.edu.pk/">
-Sargodha
-</a>
-
-<a class="btn" target="_blank" rel="noopener"
-href="https://www.bisesahiwal.edu.pk/">
-Sahiwal
-</a>
-
-<a class="btn" target="_blank" rel="noopener"
-href="https://www.bisebwp.edu.pk/">
-Bahawalpur
-</a>
-
-<a class="btn" target="_blank" rel="noopener"
-href="https://www.bisedgkhan.edu.pk/">
-DG Khan
-</a>
-
-</div>
-
-<h3 style="margin-top:28px">
-Other Pakistan Boards
+<h3>
+Punjab Boards
 </h3>
 
-<div class="grid">
 
-<a class="btn alt" target="_blank" rel="noopener"
-href="https://www.fbise.edu.pk/">
-Federal Board
+<div class="board-grid">
+
+<a
+class="board"
+target="_blank"
+rel="noopener"
+href="https://result.biselahore.com/"
+>
+BISE Lahore
 </a>
 
-<a class="btn alt" target="_blank" rel="noopener"
-href="https://www.biek.edu.pk/">
-Karachi Board
+<a
+class="board"
+target="_blank"
+rel="noopener"
+href="https://www.bisegrw.edu.pk/"
+>
+BISE Gujranwala
 </a>
 
-<a class="btn alt" target="_blank" rel="noopener"
-href="https://www.ajkbise.net/">
-AJK Board
+<a
+class="board"
+target="_blank"
+rel="noopener"
+href="https://www.bisefsd.edu.pk/"
+>
+BISE Faisalabad
 </a>
 
-<a class="btn alt" target="_blank" rel="noopener"
-href="https://www.bisep.edu.pk/">
-Peshawar Board
+<a
+class="board"
+target="_blank"
+rel="noopener"
+href="https://web.bisemultan.edu.pk/"
+>
+BISE Multan
+</a>
+
+<a
+class="board"
+target="_blank"
+rel="noopener"
+href="https://www.bisesargodha.edu.pk/"
+>
+BISE Sargodha
+</a>
+
+<a
+class="board"
+target="_blank"
+rel="noopener"
+href="https://www.biserwp.edu.pk/"
+>
+BISE Rawalpindi
+</a>
+
+<a
+class="board"
+target="_blank"
+rel="noopener"
+href="https://bisebwp.edu.pk/"
+>
+BISE Bahawalpur
+</a>
+
+<a
+class="board"
+target="_blank"
+rel="noopener"
+href="https://www.bisedgkhan.edu.pk/"
+>
+BISE D.G. Khan
+</a>
+
+<a
+class="board"
+target="_blank"
+rel="noopener"
+href="https://bisesahiwal.edu.pk/"
+>
+BISE Sahiwal
 </a>
 
 </div>
 
-<p class="small">
-Board websites can change their result-page addresses. These buttons open official board websites.
-</p>
+
+<h3 style="margin-top:30px">
+🇵🇰 Other Pakistan Boards
+</h3>
+
+
+<div class="board-grid">
+
+<a
+class="board"
+target="_blank"
+rel="noopener"
+href="https://result.fbise.edu.pk/"
+>
+FBISE Islamabad
+</a>
+
+<a
+class="board"
+target="_blank"
+rel="noopener"
+href="https://www.biseresult.pk/"
+>
+KPK / Result Portal
+</a>
+
+<a
+class="board"
+target="_blank"
+rel="noopener"
+href="https://www.bsek.edu.pk/"
+>
+BSE Karachi
+</a>
+
+<a
+class="board"
+target="_blank"
+rel="noopener"
+href="https://www.biseh.edu.pk/"
+>
+BISE Hyderabad
+</a>
+
+<a
+class="board"
+target="_blank"
+rel="noopener"
+href="https://www.bisesuksindh.edu.pk/"
+>
+BISE Sukkur
+</a>
+
+<a
+class="board"
+target="_blank"
+rel="noopener"
+href="https://bbise.edu.pk/"
+>
+BBISE Quetta
+</a>
 
 </div>
+
+</div>
+
 </section>
 
+
+
+<!-- CALCULATOR -->
 
 <section id="calculator" class="section">
 
 <div class="section-head">
-<div class="kicker">Smart Calculator</div>
-<h2>📐 Land & Unit Calculator</h2>
-<p>Length, width, area and common unit conversions.</p>
+
+<div class="kicker">
+Calculator
 </div>
+
+<h2>
+🧮 Hassnain Calculator
+</h2>
+
+<p>
+Length conversion, land area and percentage — simple and fast.
+</p>
+
+</div>
+
 
 <div class="grid">
 
-<div class="card">
-
-<h3>🌾 Land Area</h3>
-
-<input id="landLength"
-type="number"
-step="any"
-placeholder="Length">
-
-<select id="landLengthUnit">
-<option value="m">Meters</option>
-<option value="km">Kilometers</option>
-<option value="ft">Feet</option>
-</select>
-
-<input id="landWidth"
-type="number"
-step="any"
-placeholder="Width">
-
-<select id="landWidthUnit">
-<option value="m">Meters</option>
-<option value="km">Kilometers</option>
-<option value="ft">Feet</option>
-</select>
-
-<button class="btn" onclick="calculateLand()">
-Calculate Area
-</button>
-
-<div id="landResult" class="result">
-Enter length and width.
-</div>
-
-</div>
-
 
 <div class="card">
 
-<h3>📏 Length Converter</h3>
+<div class="icon">
+📏
+</div>
 
-<input id="convertValue"
-type="number"
-step="any"
-placeholder="Enter value">
+<h3>
+Length Converter
+</h3>
 
-<select id="convertFrom">
-<option value="m">Meter</option>
-<option value="km">Kilometer</option>
-<option value="ft">Foot</option>
+
+<div class="row">
+
+<select
+id="unitFrom"
+class="select"
+>
+
+<option value="m">
+Meter
+</option>
+
+<option value="km">
+Kilometer
+</option>
+
+<option value="ft">
+Feet
+</option>
+
 </select>
 
-<button class="btn" onclick="convertLength()">
+
+<select
+id="unitTo"
+class="select"
+>
+
+<option value="km">
+Kilometer
+</option>
+
+<option value="m">
+Meter
+</option>
+
+<option value="ft">
+Feet
+</option>
+
+</select>
+
+</div>
+
+
+<input
+id="unitValue"
+class="input"
+type="number"
+step="any"
+placeholder="Enter value"
+>
+
+
+<button
+class="btn"
+onclick="convertUnit()"
+>
 Convert
 </button>
 
-<div id="convertResult" class="result">
-Result will appear here.
+
+<div
+id="unitResult"
+class="result status"
+>
+Your answer will appear here.
 </div>
 
 </div>
 
+
+
+<div class="card">
+
+<div class="icon">
+🌾
 </div>
+
+<h3>
+Land Area
+</h3>
+
+<p>
+Enter length and width. You can choose meters, feet or kilometers.
+</p>
+
+
+<div class="row">
+
+<input
+id="landLength"
+class="input"
+type="number"
+step="any"
+placeholder="Length"
+>
+
+<input
+id="landWidth"
+class="input"
+type="number"
+step="any"
+placeholder="Width"
+>
+
+</div>
+
+
+<div class="row">
+
+<select
+id="landUnit"
+class="select"
+>
+
+<option value="m">
+Meters
+</option>
+
+<option value="ft">
+Feet
+</option>
+
+<option value="km">
+Kilometers
+</option>
+
+</select>
+
+
+<select
+id="areaUnit"
+class="select"
+>
+
+<option value="m2">
+Square meters
+</option>
+
+<option value="ft2">
+Square feet
+</option>
+
+<option value="km2">
+Square kilometers
+</option>
+
+</select>
+
+</div>
+
+
+<button
+class="btn"
+onclick="calculateArea()"
+>
+Calculate Area
+</button>
+
+
+<div
+id="areaResult"
+class="result status"
+>
+Area answer will appear here.
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="icon">
+📊
+</div>
+
+<h3>
+Percentage
+</h3>
+
+
+<div class="row">
+
+<input
+id="marksGot"
+class="input"
+type="number"
+step="any"
+placeholder="Obtained marks"
+>
+
+<input
+id="marksTotal"
+class="input"
+type="number"
+step="any"
+placeholder="Total marks"
+>
+
+</div>
+
+
+<button
+class="btn"
+onclick="percentage()"
+>
+Calculate
+</button>
+
+
+<div
+id="percentResult"
+class="result status"
+>
+Enter marks.
+</div>
+
+</div>
+
+
+</div>
+
 </section>
 
 
-<section id="ai-chat" class="section">
+
+<!-- CHAT -->
+
+<section id="chat" class="section">
 
 <div class="section-head">
 
@@ -321,14 +1107,31 @@ Hassnain AI
 </h2>
 
 <p>
-Ask your question in Urdu, Punjabi, English or another language.
+Ask questions in Urdu, Punjabi, English or another language.
 </p>
 
 </div>
 
+
 <div class="card">
 
-<div id="chatBox" class="chatbox">
+<div class="notice">
+
+<strong>
+Daily limit: 20 questions per device.
+</strong>
+
+<br>
+
+Hassnain AI uses Puter.js so no API key is placed inside this website.
+
+</div>
+
+
+<div
+id="chatBox"
+class="chatbox"
+>
 
 <div class="msg ai">
 Assalam-o-Alaikum! میں Hassnain AI ہوں۔ اپنا سوال لکھیں۔
@@ -336,30 +1139,55 @@ Assalam-o-Alaikum! میں Hassnain AI ہوں۔ اپنا سوال لکھیں۔
 
 </div>
 
+
+<div class="chat-form">
+
 <textarea
 id="chatInput"
+class="textarea"
 placeholder="اپنا سوال لکھیں..."
 ></textarea>
 
+
 <div class="actions">
 
-<button class="btn"
-onclick="sendChat()">
+<button
+id="sendBtn"
+class="btn"
+onclick="sendChat()"
+>
 Send Question →
 </button>
 
-<button class="btn alt"
-onclick="clearChat()">
+<button
+class="btn alt"
+onclick="clearChat()"
+>
 Clear Chat
 </button>
 
 </div>
 
-<div id="chatStatus" class="small"
-style="margin-top:10px">
+
+<div
+id="chatCounter"
+class="counter"
+>
+20 questions remaining today.
+</div>
+
+
+<div
+id="chatStatus"
+class="status"
+>
+Ready.
 </div>
 
 </div>
+
+</div>
+
 </section>
 
 
@@ -367,50 +1195,10 @@ style="margin-top:10px">
 ADVERTISEMENT
 </div>
 
-
-<section class="section">
-
-<div class="section-head">
-
-<div class="kicker">
-Google
 </div>
 
-<h2>
-Google AI Studio
-</h2>
-
-<p>
-Open Google AI Studio for future AI project/API setup.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>
-🚀 Google AI Studio
-</h3>
-
-<p>
-Your website can later be connected to a secured backend/API project.
-Never put secret API keys directly inside this public HTML file.
-</p>
-
-<a
-class="btn"
-target="_blank"
-rel="noopener"
-href="https://aistudio.google.com/">
-Open Google AI Studio
-</a>
-
-</div>
-
-</section>
-
-</div>
 </main>
+
 
 
 <footer>
@@ -420,7 +1208,7 @@ Hassnain <span class="gold">Hub</span>
 </strong>
 
 <p>
-Useful AI, education and digital tools.
+AI • Education • Tools • Results
 </p>
 
 <p class="small">
@@ -430,62 +1218,43 @@ Useful AI, education and digital tools.
 </footer>
 
 
+
 <script>
 
-/* =========================
-AI IMAGE GENERATOR
-========================= */
-
-const IMAGE_LIMIT=3;
-
-let currentImageUrl="";
+/* DAILY LIMITS */
 
 function todayKey(){
-
-const d=new Date();
-
-return d.getFullYear()+"-"+
-String(d.getMonth()+1).padStart(2,"0")+"-"+
-String(d.getDate()).padStart(2,"0");
-
+return new Date().toISOString().slice(0,10);
 }
 
-function imageUsage(){
+
+function getCount(key){
 
 try{
 
-const saved=
-JSON.parse(
-localStorage.getItem("hh_image_usage")||"{}"
-);
+const raw=localStorage.getItem(key);
 
-if(saved.date!==todayKey()){
+if(!raw)return 0;
 
-return{
-date:todayKey(),
-count:0
-};
+const obj=JSON.parse(raw);
 
-}
-
-return saved;
+return obj.date===todayKey()
+?Number(obj.count||0)
+:0;
 
 }catch(e){
 
-return{
-date:todayKey(),
-count:0
-};
+return 0;
 
 }
 
 }
 
 
-function saveImageUsage(count){
+function setCount(key,count){
 
 localStorage.setItem(
-"hh_image_usage",
+key,
 JSON.stringify({
 date:todayKey(),
 count:count
@@ -495,140 +1264,305 @@ count:count
 }
 
 
-function generateImage(){
+const IMAGE_LIMIT=5;
+const CHAT_LIMIT=20;
+
+
+
+/* IMAGE TOOL */
+
+let selectedFile=null;
+let generatedDataUrl="";
+
+
+const imageFile=document.getElementById("imageFile");
+
+
+imageFile.addEventListener("change",()=>{
+
+selectedFile=
+imageFile.files && imageFile.files[0]
+?imageFile.files[0]
+:null;
+
+
+const text=document.getElementById("fileText");
+
+const prev=document.getElementById("sourcePreview");
+
+const img=document.getElementById("sourceImg");
+
+
+if(!selectedFile){
+
+text.textContent="📷 Choose your photo";
+
+prev.classList.add("hidden");
+
+return;
+
+}
+
+
+text.textContent="📷 "+selectedFile.name;
+
+img.src=URL.createObjectURL(selectedFile);
+
+prev.classList.remove("hidden");
+
+});
+
+
+function updateImageCounter(){
+
+const left=Math.max(
+0,
+IMAGE_LIMIT-getCount("hh_image_count")
+);
+
+
+document.getElementById("imageCounter").textContent=
+left+
+" image"+
+(left===1?"":"s")+
+" remaining today.";
+
+}
+
+
+updateImageCounter();
+
+
+
+async function generateImage(){
+
+const status=document.getElementById("imageStatus");
+
+const btn=document.getElementById("generateBtn");
 
 const prompt=
 document.getElementById("imagePrompt")
 .value
 .trim();
 
-const status=
-document.getElementById("imageStatus");
 
-const output=
-document.getElementById("imageOutput");
+const used=getCount("hh_image_count");
 
-const actions=
-document.getElementById("imageActions");
+
+if(used>=IMAGE_LIMIT){
+
+status.className="status err";
+
+status.textContent=
+"Daily limit reached. Please try again tomorrow.";
+
+return;
+
+}
+
+
+if(!selectedFile){
+
+status.className="status err";
+
+status.textContent=
+"📸 Your photo is required before generation.";
+
+return;
+
+}
 
 
 if(!prompt){
 
+status.className="status err";
+
 status.textContent=
-"Please write your image idea first.";
+"Please describe what you want to create.";
 
 return;
 
 }
 
 
-const usage=imageUsage();
+btn.disabled=true;
 
+btn.textContent="Generating...";
 
-if(usage.count>=IMAGE_LIMIT){
-
-status.innerHTML=
-"<strong>Today's free image limit is finished.</strong><br>Please try again tomorrow.";
-
-return;
-
-}
-
-
-usage.count++;
-
-saveImageUsage(usage.count);
-
+status.className="status";
 
 status.textContent=
-"Generating your image... please wait.";
-
-output.innerHTML="";
-
-actions.style.display="none";
+"AI is working on your photo. Please wait...";
 
 
-const finalPrompt=
-"Create a high-quality safe image based exactly on this user's idea. "+
-"The user may write in Urdu, Punjabi, English or another language. "+
-"Understand the meaning and create a visually detailed image. "+
-"User idea: "+prompt;
+try{
 
+const result=
+await puter.ai.chat(
 
-const url=
-"https://image.pollinations.ai/prompt/"+
-encodeURIComponent(finalPrompt)+
-"?model=flux&width=1024&height=1024&safe=true";
+[
 
+{
 
-currentImageUrl=url;
+role:"user",
 
+content:[
 
-const img=new Image();
+{
 
+type:"text",
 
-img.onload=function(){
+text:
+"Edit the user's uploaded photo according to this request. Preserve the person's identity and important facial features. Create a natural, high-quality image. User request: "
++
+prompt
 
-output.innerHTML="";
+},
 
-output.appendChild(img);
+{
 
-status.innerHTML=
-"Image generated successfully. "+
-"<span class='badge'>"+
-usage.count+"/"+IMAGE_LIMIT+
-" used today</span>";
+type:"file",
 
-actions.style.display="flex";
-
-document.getElementById("openImage").href=url;
-
-};
-
-
-img.onerror=function(){
-
-status.innerHTML=
-"The image service did not respond. Please try again later.";
-
-actions.style.display="none";
-
-};
-
-
-img.alt="AI generated image";
-
-img.src=url;
+file:selectedFile
 
 }
+
+]
+
+}
+
+],
+
+false,
+
+{
+
+model:"gemini-3.1-flash-image-preview"
+
+}
+
+);
+
+
+const images=
+result?.message?.images||[];
+
+
+if(!images.length){
+
+throw new Error(
+"No image was returned by the AI service."
+);
+
+}
+
+
+generatedDataUrl=
+images[0]?.image_url?.url||"";
+
+
+if(!generatedDataUrl){
+
+throw new Error(
+"Generated image URL was empty."
+);
+
+}
+
+
+document.getElementById("generatedImg").src=
+generatedDataUrl;
+
+
+document.getElementById("resultPreview")
+.classList.remove("hidden");
+
+
+setCount(
+"hh_image_count",
+used+1
+);
+
+
+updateImageCounter();
+
+
+status.className="status ok";
+
+status.textContent=
+"Image generated successfully.";
+
+}catch(err){
+
+console.error(err);
+
+status.className="status err";
+
+status.textContent=
+"AI image service could not complete the request. If Puter asks you to sign in, complete the on-screen sign-in and try again.";
+
+}finally{
+
+btn.disabled=false;
+
+btn.textContent=
+"✨ Generate Image";
+
+}
+
+}
+
 
 
 async function saveImage(){
 
-if(!currentImageUrl)
-return;
+if(!generatedDataUrl)return;
+
 
 try{
 
-const response=
-await fetch(
-currentImageUrl,
-{mode:"cors"}
+const blob=
+await(
+await fetch(generatedDataUrl)
+).blob();
+
+
+const file=
+new File(
+[blob],
+"hassnain-ai-image.png",
+{
+type:blob.type||"image/png"
+}
 );
 
-const blob=
-await response.blob();
 
-const blobUrl=
-URL.createObjectURL(blob);
+if(
+navigator.share &&
+navigator.canShare &&
+navigator.canShare({files:[file]})
+){
 
-const a=
-document.createElement("a");
+await navigator.share({
 
-a.href=blobUrl;
+title:"Hassnain AI Image",
 
-a.download=
-"hassnain-hub-ai-image.jpg";
+files:[file]
+
+});
+
+return;
+
+}
+
+}catch(e){}
+
+
+const a=document.createElement("a");
+
+a.href=generatedDataUrl;
+
+a.download="hassnain-ai-image.png";
 
 document.body.appendChild(a);
 
@@ -636,18 +1570,18 @@ a.click();
 
 a.remove();
 
-setTimeout(
-()=>{
-URL.revokeObjectURL(blobUrl);
-},
-2000
-);
+}
 
-}catch(e){
+
+
+function openGenerated(){
+
+if(generatedDataUrl){
 
 window.open(
-currentImageUrl,
-"_blank"
+generatedDataUrl,
+"_blank",
+"noopener"
 );
 
 }
@@ -655,40 +1589,105 @@ currentImageUrl,
 }
 
 
-function clearImage(){
+
+function clearImageTool(){
+
+selectedFile=null;
+
+generatedDataUrl="";
+
+document.getElementById("imageFile").value="";
 
 document.getElementById("imagePrompt").value="";
 
-document.getElementById("imageOutput").innerHTML="";
+document.getElementById("fileText")
+.textContent="📷 Choose your photo";
 
-document.getElementById("imageActions").style.display="none";
+document.getElementById("sourcePreview")
+.classList.add("hidden");
 
-document.getElementById("imageStatus").textContent=
-"Your generated image will appear here.";
+document.getElementById("resultPreview")
+.classList.add("hidden");
 
-currentImageUrl="";
+document.getElementById("imageStatus")
+.className="status";
 
-}
-
-
-/* =========================
-LAND CALCULATOR
-========================= */
-
-function toMeters(value,unit){
-
-if(unit==="km")
-return value*1000;
-
-if(unit==="ft")
-return value*0.3048;
-
-return value;
+document.getElementById("imageStatus")
+.textContent=
+"Upload a photo and enter an idea.";
 
 }
 
 
-function calculateLand(){
+
+/* CALCULATOR */
+
+function convertUnit(){
+
+const v=
+parseFloat(
+document.getElementById("unitValue").value
+);
+
+const from=
+document.getElementById("unitFrom").value;
+
+const to=
+document.getElementById("unitTo").value;
+
+const out=
+document.getElementById("unitResult");
+
+
+if(!Number.isFinite(v)){
+
+out.className="result status err";
+
+out.textContent=
+"Enter a valid number.";
+
+return;
+
+}
+
+
+const meters={
+m:v,
+km:v*1000,
+ft:v*0.3048
+}[from];
+
+
+const result={
+m:meters,
+km:meters/1000,
+ft:meters/0.3048
+}[to];
+
+
+const labels={
+m:"meters",
+km:"kilometers",
+ft:"feet"
+};
+
+
+out.className="result status ok";
+
+out.textContent=
+v+
+" "+
+labels[from]+
+" = "+
+Number(result.toFixed(8))+
+" "+
+labels[to];
+
+}
+
+
+
+function calculateArea(){
 
 const l=
 parseFloat(
@@ -700,140 +1699,176 @@ parseFloat(
 document.getElementById("landWidth").value
 );
 
-const lu=
-document.getElementById("landLengthUnit").value;
+const unit=
+document.getElementById("landUnit").value;
 
-const wu=
-document.getElementById("landWidthUnit").value;
+const target=
+document.getElementById("areaUnit").value;
 
-const box=
-document.getElementById("landResult");
+const out=
+document.getElementById("areaResult");
 
 
-if(!Number.isFinite(l)||
+if(
+!Number.isFinite(l)||
 !Number.isFinite(w)||
-l<0||w<0){
+l<0||
+w<0
+){
 
-box.textContent=
-"Please enter valid length and width.";
+out.className="result status err";
+
+out.textContent=
+"Enter valid length and width.";
 
 return;
 
 }
 
 
-const lm=
-toMeters(l,lu);
-
-const wm=
-toMeters(w,wu);
-
-const area=
-lm*wm;
+const factor={
+m:1,
+ft:0.3048,
+km:1000
+}[unit];
 
 
-box.innerHTML=
+const m2=
+l*factor*w*factor;
 
-"<strong>Area:</strong> "+
-area.toFixed(4)+" m²<br>"+
 
-"<strong>Square feet:</strong> "+
-(area*10.7639104167).toFixed(4)+" ft²<br>"+
+const result={
+m2:m2,
+ft2:m2/0.09290304,
+km2:m2/1000000
+}[target];
 
-"<strong>Square kilometers:</strong> "+
-(area/1000000).toFixed(8)+" km²";
+
+const labels={
+m2:"m²",
+ft2:"ft²",
+km2:"km²"
+};
+
+
+out.className="result status ok";
+
+out.textContent=
+"Area = "+
+Number(result.toFixed(8))+
+" "+
+labels[target];
 
 }
 
 
-function convertLength(){
 
-const v=
+function percentage(){
+
+const a=
 parseFloat(
-document.getElementById("convertValue").value
+document.getElementById("marksGot").value
 );
 
-const from=
-document.getElementById("convertFrom").value;
+const b=
+parseFloat(
+document.getElementById("marksTotal").value
+);
+
+const out=
+document.getElementById("percentResult");
+
+
+if(
+!Number.isFinite(a)||
+!Number.isFinite(b)||
+b<=0||
+a<0
+){
+
+out.className="result status err";
+
+out.textContent=
+"Enter valid marks.";
+
+return;
+
+}
+
+
+out.className="result status ok";
+
+out.textContent=
+"Percentage: "+
+((a/b)*100).toFixed(2)+
+"%";
+
+}
+
+
+
+/* HASSNAIN AI CHAT */
+
+function updateChatCounter(){
+
+const left=Math.max(
+0,
+CHAT_LIMIT-getCount("hh_chat_count")
+);
+
+
+document.getElementById("chatCounter")
+.textContent=
+left+
+" question"+
+(left===1?"":"s")+
+" remaining today.";
+
+}
+
+
+updateChatCounter();
+
+
+
+function addMessage(type,text){
 
 const box=
-document.getElementById("convertResult");
+document.getElementById("chatBox");
 
 
-if(!Number.isFinite(v)){
-
-box.textContent=
-"Please enter a valid value.";
-
-return;
-
-}
+const div=
+document.createElement("div");
 
 
-const m=
-toMeters(v,from);
+div.className=
+"msg "+
+type;
 
 
-box.innerHTML=
+div.textContent=text;
 
-"<strong>Meters:</strong> "+
-m.toFixed(6)+" m<br>"+
 
-"<strong>Kilometers:</strong> "+
-(m/1000).toFixed(6)+" km<br>"+
+box.appendChild(div);
 
-"<strong>Feet:</strong> "+
-(m/0.3048).toFixed(6)+" ft";
+
+box.scrollTop=
+box.scrollHeight;
+
+
+return div;
 
 }
 
 
-/* =========================
-HASSNAIN AI CHAT
-========================= */
 
-const CHAT_LIMIT=20;
-
-
-function chatUsage(){
-
-try{
-
-const saved=
-JSON.parse(
-localStorage.getItem("hh_chat_usage")||"{}"
-);
-
-if(saved.date!==todayKey()){
-
-return{
-date:todayKey(),
-count:0
-};
-
-}
-
-return saved;
-
-}catch(e){
-
-return{
-date:todayKey(),
-count:0
-};
-
-}
-
-}
-
-
-function sendChat(){
+async function sendChat(){
 
 const input=
 document.getElementById("chatInput");
 
-const box=
-document.getElementById("chatBox");
+const btn=
+document.getElementById("sendBtn");
 
 const status=
 document.getElementById("chatStatus");
@@ -842,7 +1877,27 @@ const question=
 input.value.trim();
 
 
+const used=
+getCount("hh_chat_count");
+
+
+if(used>=CHAT_LIMIT){
+
+status.className=
+"status err";
+
+status.textContent=
+"Daily limit reached. Please try again tomorrow.";
+
+return;
+
+}
+
+
 if(!question){
+
+status.className=
+"status err";
 
 status.textContent=
 "Please write a question.";
@@ -852,125 +1907,161 @@ return;
 }
 
 
-const usage=
-chatUsage();
-
-
-if(usage.count>=CHAT_LIMIT){
-
-status.textContent=
-"Today's free chat limit is finished. Please try again tomorrow.";
-
-return;
-
-}
-
-
-usage.count++;
-
-
-localStorage.setItem(
-"hh_chat_usage",
-JSON.stringify(usage)
+addMessage(
+"user",
+question
 );
 
-
-const user=
-document.createElement("div");
-
-user.className="msg user";
-
-user.textContent=question;
-
-box.appendChild(user);
-
-
-const ai=
-document.createElement("div");
-
-ai.className="msg ai";
-
-ai.textContent=
-"Hassnain AI is thinking...";
-
-box.appendChild(ai);
-
-box.scrollTop=
-box.scrollHeight;
 
 input.value="";
 
 
+btn.disabled=true;
+
+btn.textContent=
+"Thinking...";
+
+
+status.className="status";
+
 status.textContent=
-usage.count+
-"/"+
-CHAT_LIMIT+
-" questions used today.";
+"Hassnain AI is preparing your answer...";
 
 
-const prompt=
+try{
 
-"You are Hassnain AI, a helpful assistant on Hassnain Hub. "+
-"Answer the user's question in the same language they use when possible. "+
-"Be concise but useful. "+
-"If the question is unsafe or illegal, refuse briefly and offer a safe alternative. "+
-"User question: "+
-question;
+const result=
+await puter.ai.chat(
+
+"You are Hassnain AI. Answer the user's question accurately and helpfully. Reply in the same language the user uses. If the user writes Urdu, answer in Urdu; if Punjabi, answer in Punjabi; if English, answer in English. Be clear and practical. User question: "
++
+question,
+
+{
+model:"gpt-5.6-luna"
+}
+
+);
 
 
-const url=
-"https://text.pollinations.ai/"+
-encodeURIComponent(prompt)+
-"?model=openai";
+let answer="";
 
 
-fetch(
-url,
-{cache:"no-store"}
-)
+if(typeof result==="string"){
 
-.then(r=>{
+answer=result;
 
-if(!r.ok)
-throw new Error("AI service error");
+}else{
 
-return r.text();
-
-})
-
-.then(text=>{
-
-ai.textContent=
-text||
+answer=
+result?.message?.content||
+result?.message?.text||
 "No answer was returned.";
 
-box.scrollTop=
-box.scrollHeight;
+}
 
-})
 
-.catch(e=>{
+if(Array.isArray(answer)){
 
-ai.textContent=
-"Sorry, the AI service is unavailable right now. Please try again.";
-
-});
+answer=
+answer
+.map(x=>x.text||"")
+.join("");
 
 }
+
+
+addMessage(
+"ai",
+String(answer)
+);
+
+
+setCount(
+"hh_chat_count",
+used+1
+);
+
+
+updateChatCounter();
+
+
+status.className=
+"status ok";
+
+status.textContent=
+"Answer received.";
+
+
+}catch(err){
+
+console.error(err);
+
+
+addMessage(
+"ai",
+"Sorry, AI service is unavailable right now. If Puter asks you to sign in, complete the on-screen sign-in and send the question again."
+);
+
+
+status.className=
+"status err";
+
+status.textContent=
+"AI service did not respond. Please try again.";
+
+}finally{
+
+btn.disabled=false;
+
+btn.textContent=
+"Send Question →";
+
+}
+
+}
+
 
 
 function clearChat(){
 
-document.getElementById("chatBox").innerHTML=
+document.getElementById("chatBox")
+.innerHTML=
 '<div class="msg ai">Assalam-o-Alaikum! میں Hassnain AI ہوں۔ اپنا سوال لکھیں۔</div>';
 
-document.getElementById("chatInput").value="";
 
-document.getElementById("chatStatus").textContent="";
+document.getElementById("chatStatus")
+.className="status";
+
+
+document.getElementById("chatStatus")
+.textContent="Ready.";
 
 }
+
+
+
+document
+.getElementById("chatInput")
+.addEventListener(
+"keydown",
+e=>{
+
+if(
+e.key==="Enter" &&
+!e.shiftKey
+){
+
+e.preventDefault();
+
+sendChat();
+
+}
+
+}
+);
 
 </script>
 
 </body>
-</html>
+  </html>
