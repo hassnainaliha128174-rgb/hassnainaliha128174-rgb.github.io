@@ -307,12 +307,19 @@ function clearImageForm(){
 
 async function generateImage(){
   trackEvent("generate_image_click");
+
   const file=document.getElementById("imageFile").files[0];
   const prompt=document.getElementById("imagePrompt").value.trim();
   const status=document.getElementById("imageStatus");
 
-  if(!file){status.textContent="❗ پہلے اپنی تصویر upload کریں۔";return}
-  if(!prompt){status.textContent="❗ پہلے بتائیں تصویر کس طرح بنانی ہے۔";return}
+  if(!file){
+    status.textContent="❗ پہلے اپنی تصویر upload کریں۔";
+    return;
+  }
+  if(!prompt){
+    status.textContent="❗ پہلے بتائیں تصویر کس طرح بنانی ہے۔";
+    return;
+  }
   if(getCount("hh_img")>=IMAGE_LIMIT){
     status.textContent="آج کی 5 تصاویر کی limit مکمل ہو گئی ہے۔ کل دوبارہ کوشش کریں۔";
     return;
@@ -322,38 +329,50 @@ async function generateImage(){
     return;
   }
 
-  status.textContent="⏳ AI تصویر بنا رہا ہے، براہِ کرم انتظار کریں...";
+  status.textContent="⏳ Chini AI تصویر بنا رہا ہے، براہِ کرم انتظار کریں...";
   document.getElementById("generatedBox").style.display="none";
 
   try{
+    // Convert the user's local upload to a data URL so Puter can use it
+    // directly for image-to-image generation.
+    const dataUrl=await new Promise((resolve,reject)=>{
+      const reader=new FileReader();
+      reader.onload=()=>resolve(reader.result);
+      reader.onerror=()=>reject(new Error("Could not read uploaded image"));
+      reader.readAsDataURL(file);
+    });
+
     const instruction=
-      "Edit/create the image using the user's uploaded photo as the main person/subject. "+
+      "Create or edit an image using the user's uploaded photo as the main person/subject. "+
       "Preserve the person's recognizable identity and important facial features. "+
-      "Follow the user's requested scene/style carefully. User request: "+prompt;
+      "Follow the requested scene, clothing, background, lighting and style carefully. "+
+      "Return the finished image. User request: "+prompt;
 
-    const result=await puter.ai.chat(
-      instruction,
-      file,
-      false,
-      {model:"gemini-3.1-flash-image-preview",image_config:{aspect_ratio:"1:1",image_size:"1K"}}
-    );
+    // Use Puter's current image-to-image API. The result is returned as an
+    // HTMLImageElement and is displayed directly inside this website.
+    const image=await puter.ai.txt2img(instruction,{
+      provider:"gemini",
+      model:"gemini-3.1-flash-image-preview",
+      input_image:dataUrl,
+      quality:"1K",
+      ratio:{w:1,h:1}
+    });
 
-    const images=result?.message?.images||[];
-    if(!images.length) throw new Error("No image returned");
+    if(!image || !image.src){
+      throw new Error("No generated image returned");
+    }
 
-    const url=images[0].image_url?.url;
-    if(!url) throw new Error("Image URL missing");
-
+    const url=image.src;
     document.getElementById("generatedImage").src=url;
     document.getElementById("saveImage").href=url;
     document.getElementById("generatedBox").style.display="block";
 
     setCount("hh_img",getCount("hh_img")+1);
     updateCounters();
-    status.textContent="✅ Image generated successfully.";
+    status.textContent="✅ تصویر کامیابی سے generate ہو گئی۔";
   }catch(err){
-    console.error(err);
-    status.textContent="❌ تصویر generate نہیں ہو سکی۔ دوبارہ Generate Image دبائیں۔";
+    console.error("Chini AI image generation error:",err);
+    status.textContent="❌ تصویر generate نہیں ہو سکی۔ براہِ کرم دوبارہ کوشش کریں۔";
   }
 }
 
