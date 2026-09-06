@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://example.github.io/Hassnain-Hub/sitemap.xml
+Sitemap: https://hassnainaliha128174-rgb.github.io/sitemap.xml
